@@ -183,7 +183,7 @@ export default function GiaoVienTinhHoa({ props }) {
                   loading="lazy"
                   className="h-20 w-20 rounded-full border-2 border-orange-500 object-cover p-1"
                 />
-                <p className="mt-2 text-center">Trần Giang Thanh</p>
+                <p className="mt-2 text-center">{_.name}</p>
               </Button>
             ))}
           </div>

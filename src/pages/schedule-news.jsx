@@ -2,7 +2,6 @@ import NhanTuVanPage from "@/components/home/nhan-tu-van";
 import CardNews from "@/components/news/card-new";
 import { Button } from "@headlessui/react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 const data = [
   {
     img: "/assets/post/english-books-resting-table-working-space 1.png",
