@@ -5,97 +5,97 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const data = [
   {
-    img: "/public/assets/post/english-books-resting-table-working-space 1.png",
+    img: "/assets/post/english-books-resting-table-working-space 1.png",
     title: "Lộ trình học tiếng anh cho người mất gốc từ A - Z",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
       "Bạn là học sinh cấp 3? Bạn chìm trong mớ hỗn độn bài vở, deadline, thi cử? Áp lực học tập đè nặng khiến bạn stress, “burn out” dù chẳng gần lửa? Thấu hiểu điều này,",
   },
   {
-    img: "/public/assets/post/post2.png",
+    img: "/assets/post/post2.png",
     title:
       "Cùng TopGiaoVien “sạc” đầu năng lượng tại workshop “Recharge to restart”",
     content:
