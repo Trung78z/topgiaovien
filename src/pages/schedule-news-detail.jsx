@@ -14,7 +14,7 @@ export default function ScheduleNewsDetail() {
             Lộ trình học tiếng anh cho người mất gốc từ A - Z
           </h1>
           <img
-            src="/public/assets/post/english-books-resting-table-working-space 1.png"
+            src="/assets/post/english-books-resting-table-working-space 1.png"
             alt=""
             className="w-full rounded-sm"
           />
