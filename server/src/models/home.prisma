@@ -1,0 +1,53 @@
+model banner {
+  id        Int      @id @default(autoincrement())
+  image     String   @db.VarChar(100)
+  alt       String?  @db.VarChar(200)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model time {
+  id       Int        @id @default(autoincrement())
+  title    String?    @db.VarChar(40)
+  timeLine timeLine[]
+}
+
+model timeLine {
+  id     Int     @id @default(autoincrement())
+  title  String? @db.VarChar(20)
+  time   time?   @relation(fields: [timeId], references: [id], onDelete: Cascade)
+  timeId Int?
+}
+
+model careCourse {
+  id           Int      @id @default(autoincrement())
+  fullName     String?
+  phone        String?
+  time         String?  @db.VarChar(500)
+  languageCare String?
+  courseCare   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  courseId     Int?
+  course       course?  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  teacher      teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId    String?  @db.VarChar(8)
+}
+
+model videoModel {
+  id        Int      @id @default(autoincrement())
+  image     String?
+  url       String?  @db.VarChar(500)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model zingNews {
+  id          Int      @id @default(autoincrement())
+  title       String?  @unique @db.VarChar(500)
+  description String?  @db.Text()
+  image       String?
+  url         String?  @db.VarChar(500)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

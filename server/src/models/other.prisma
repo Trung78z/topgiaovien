@@ -1,0 +1,103 @@
+model share {
+  id        Int      @id @default(autoincrement())
+  content   String   @db.VarChar(1000)
+  icon      String?
+  fullName  String?
+  image     String?
+  link      String?
+  active    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?  @db.VarChar(8)
+}
+
+model location {
+  id      Int       @id @default(autoincrement())
+  content String?
+  course  course[]
+  teacher teacher[]
+}
+
+model category {
+  id          Int           @id @default(autoincrement())
+  content     String
+  icon        String?       @db.VarChar(3000)
+  subcategory subcategory[]
+  post        post[]
+}
+
+model subcategory {
+  id         Int       @id @default(autoincrement())
+  content    String
+  category   category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int?
+  post       post[]
+}
+
+model post {
+  id            Int          @id @default(autoincrement())
+  title         String       @db.VarChar(500)
+  slug          String       @unique
+  content       String       @db.Text()
+  image         String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  subcategory   subcategory? @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
+  subcategoryId Int?
+  category      category?    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId    Int?
+  user          user?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String?
+}
+
+model applicationCategory {
+  id                     Int                      @id @default(autoincrement())
+  content                String?
+  applicationSubCategory applicationSubCategory[]
+  application            application[]
+}
+
+model applicationSubCategory {
+  id                    Int                  @id @default(autoincrement())
+  content               String?
+  applicationCategory   applicationCategory? @relation(fields: [applicationCategoryId], references: [id], onDelete: Cascade)
+  applicationCategoryId Int?
+  application           application[]
+}
+
+model application {
+  id                       Int                     @id @default(autoincrement())
+  title                    String?
+  slug                     String?                 @unique
+  responsibilities         String?                 @db.VarChar(2000)
+  requirements             String?                 @db.VarChar(2000)
+  benefits                 String?                 @db.VarChar(2000)
+  recruitmentProcess       String?                 @db.VarChar(2000)
+  location                 String?
+  salary                   String?
+  position                 String?
+  jobType                  String?
+  jobRole                  String?
+  applicationDeadline      DateTime
+  createdAt                DateTime                @default(now())
+  updatedAt                DateTime                @updatedAt
+  applicationSubCategory   applicationSubCategory? @relation(fields: [applicationSubCategoryId], references: [id], onDelete: Cascade)
+  applicationSubCategoryId Int?
+  applicationCategory      applicationCategory?    @relation(fields: [applicationCategoryId], references: [id], onDelete: Cascade)
+  applicationCategoryId    Int?
+  jobApply                 jobApply[]
+}
+
+model jobApply {
+  id            Int          @id @default(autoincrement())
+  email         String?
+  fullName      String?
+  phone         String?
+  position      String?
+  file          String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  application   application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  applicationId Int?
+}

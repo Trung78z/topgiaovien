@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /doi-mat-khau
+Disallow: /chinh-sua
+Disallow: /dang-nhap
+Disallow: /dang-ki
+Allow: /
+Sitemap: https://topgiaovien.vn/sitemap.xml

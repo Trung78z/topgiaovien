@@ -1,0 +1,29 @@
+
+@baseUrl = http://localhost:8080/api/share
+POST  {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmOWExN2M1LWU3NWYtNGM3Yi05NDA4LTQ0YjQwNGI3ZDE5NyIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzI0MzkxNTU5LCJleHAiOjE3MjQ1NjQzNTl9.EX-CTy966kQelCktUSCirI4X66kMmurHH0famyn2a7s
+
+{
+  "content":"𝐓𝐨̂̉ 𝐂𝐡𝐮̛́𝐜 𝐓𝐢𝐞̂𝐧 𝐏𝐡𝐨𝐧𝐠 𝐓𝐫𝐨𝐧𝐠 𝐃𝐢̣𝐜𝐡 𝐕𝐮̣ 𝐆𝐢𝐚́𝐨 𝐃𝐮̣𝐜 𝐂𝐡𝐚̂́𝐭 𝐋𝐮̛𝐨̛̣𝐧𝐠 𝐕𝐨̛́𝐢 𝟏 𝐓𝐫𝐢𝐞̣̂𝐮 𝐇𝐨̣𝐜 𝐕𝐢𝐞̂𝐧 𝐇𝐚̀𝐢 𝐋𝐨̀𝐧𝐠 𝐓𝐨𝐩𝐠𝐢𝐚𝐨𝐯𝐢𝐞𝐧 tự hào là tổ chức tiên phong trong việc cung cấ ong giảng dạy và dịch vụ khách hàng. Chúng tôi không ngừng nỗ lực để cải tiến", "link" :"https://www.facebook.com/share/p/zgSBwDyAT1Gg6eyX/"
+}
+
+
+###
+GET   {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+
+###
+PUT {{baseUrl}}/7 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0ZGJlZmVkLWI3ZDItNDhhYi1hYTA5LTU5YmYxYjlhZjE3MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzIzODg4NDA4LCJleHAiOjE3MjQwNjEyMDh9.zBNBtC0fuHNGDHJy-UISwOlNXBVqX8UGoCteuFCDbck
+
+{
+  "content":"Part 1 của bài thi IELTS yêu cầu thí sinh nhìn vào bức tranh và chọn mô tả chính xác nhất từ 4 lựa chọn được nghe một lần duy nhất. Phần này gồm 6 câu hỏi tương ứng với 6 bức tranh và thường sử dụng thì hiện tại tiếp diễn để miêu tả. Thí nghỉ giữa mỗi câu hỏi và nhận được hướng dẫn qua một ví dụ trước khi bắt đầu.", "link" :"https://www.facebook.com/share/p/zgSBwDyAT1Gg6eyX/"
+}
+
+
+###
+DELETE {{baseUrl}}/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0ZGJlZmVkLWI3ZDItNDhhYi1hYTA5LTU5YmYxYjlhZjE3MyIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzIzODg4NDA4LCJleHAiOjE3MjQwNjEyMDh9.zBNBtC0fuHNGDHJy-UISwOlNXBVqX8UGoCteuFCDbck

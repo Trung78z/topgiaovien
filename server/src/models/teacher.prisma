@@ -1,0 +1,114 @@
+model teacher {
+  id                  String             @id @unique @db.VarChar(8)
+  name                String             @db.VarChar(150)
+  slug                String
+  philosophy          String?            @db.VarChar(2000)
+  linkPhilosophy      String?
+  imagePhilosophy     String?            @db.VarChar(500)
+  typeLearn           typeLearn          @default(All)
+  commitment          String?            @db.VarChar(600)
+  position            String?            @db.VarChar(150)
+  specialty           String?            @db.VarChar(150)
+  photoUrl            String?            @db.VarChar(255)
+  photoUrl2           String?            @db.VarChar(255)
+  slogan              String?            @db.VarChar(255)
+  ca                  String?            @default("IETLS Overall") @db.VarChar(100)
+  levelCa             String?            @default("8.0") @db.VarChar(10)
+  exp                 String?            @default("4") @db.VarChar(5)
+  optionExp           String?            @default("Giảng dạy tiếng Anh") @db.VarChar(50)
+  caIELTS             String?
+  caTOEIC             String?
+  caTOEFL             String?
+  caOther             String?
+  linkChat            String?
+  voucher             String?            @default("20") @db.VarChar(20)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  education           education[]
+  certificate         certificate[]
+  experience          experience[]
+  imageMoment         imageMoment[]
+  careCourse          careCourse[]
+  user                user?              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId              String?            @unique
+  share               share[]
+  teacherNotify       teacherNotify[]
+  comment             comment[]
+  teacherForte        teacherForte[]
+  courseCategory      courseCategory?    @relation(fields: [courseCategoryId], references: [id], onDelete: Cascade)
+  courseCategoryId    Int?
+  courseSubCategory   courseSubCategory? @relation(fields: [courseSubCategoryId], references: [id], onDelete: SetNull)
+  courseSubCategoryId Int?
+  location            location?          @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId          Int?
+}
+
+model teacherForte {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?  @db.VarChar(8)
+}
+
+model teacherNotify {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String   @db.VarChar(500)
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?  @db.VarChar(8)
+}
+
+model education {
+  id        Int      @id @default(autoincrement())
+  content   String?
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?
+}
+
+model comment {
+  id          Int           @id @default(autoincrement())
+  content     String        @db.VarChar(300)
+  level       String        @db.VarChar(2)
+  image       String?
+  teacher     teacher?      @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId   String?       @db.VarChar(8)
+  user        user?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String?
+  parentId    Int?          @db.Int
+  parent      comment?      @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies     comment[]     @relation("CommentReplies")
+  commentLike commentLike[]
+}
+
+model commentLike {
+  id        Int      @id @default(autoincrement())
+  comment   comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId Int?
+  user      user?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+
+  @@unique([commentId, userId])
+}
+
+model certificate {
+  id        Int      @id @default(autoincrement())
+  content   String?
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?
+}
+
+model experience {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  content     String?
+  description String?  @db.Text()
+  teacher     teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId   String?
+}
+
+model imageMoment {
+  id        Int      @id @default(autoincrement())
+  image     String?
+  teacher   teacher? @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  teacherId String?  @db.VarChar(8)
+}

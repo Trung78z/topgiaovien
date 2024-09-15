@@ -1,0 +1,48 @@
+@baseUrl = http://localhost:8080/api
+# @baseUrl = https://api.topgiaovien.vn/api
+
+POST {{baseUrl}}/register HTTP/1.1
+content-type: application/json
+
+{
+"username":"0886506169", "password" :"Trungpy78@"
+}
+
+
+###
+POST {{baseUrl}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+"username":"0909984822", "password" :"Topgiaovien2024@"
+}
+###
+POST {{baseUrl}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+"username":"topgiaovien@gmail.com", "password" :"Topgiaovien2024@"
+}
+###
+POST {{baseUrl}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+"username":"trungpyy@gmail.com", "password" :"Topgiaovien2024@"
+}
+
+###
+POST {{baseUrl}}/login HTTP/1.1
+content-type: application/json
+
+{
+"username":"0886506169", "password" :"Trungpy78@"
+}
+
+###
+POST {{baseUrl}}/login HTTP/1.1
+content-type: application/json
+
+{
+"username":"dotuongphuonguyen@gmail.com", "password" :"Dev12345678@"
+}

@@ -1,0 +1,31 @@
+model user {
+  id          String        @id @default(uuid())
+  email       String?
+  phone       String?
+  gender      String?       @db.VarChar(6)
+  password    String?
+  fullName    String?
+  image       String?
+  role        Role          @default(user)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  post        post[]
+  teacher     teacher?
+  comment     comment[]
+  commentLike commentLike[]
+  userReset   userReset[]
+
+  @@unique([email, phone])
+}
+
+model userReset {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique // T
+  expiresAt DateTime // Thời gian hết hạn của token
+  createdAt DateTime @default(now())
+  teacherId String?  @db.VarChar(8)
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}

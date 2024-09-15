@@ -1,0 +1,22 @@
+
+
+@baseUrl = http://localhost:8080/api/post
+POST  {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmOWExN2M1LWU3NWYtNGM3Yi05NDA4LTQ0YjQwNGI3ZDE5NyIsInJvbGUiOiJ0ZWFjaGVyIiwiaWF0IjoxNzI0MjYwNjY4LCJleHAiOjE3MjQ0MzM0Njh9.o6J_uofpYoBZ209hlupwrF4po0Wt8ZAOZY3Vp_W0RiI
+
+{
+  "content":"Không chỉ người đi làm mà rất nhiều sinh viên cũng đang gặp khó khăn vì mất căn bản tiếng Anh. Vậy mất gốc tiếng Anh nên bắt đầu từ đâu? Cách sắp xếp kiến thức thế nào là hợp lý? Cùng TopGiaoVien giải đáp thắc mắc qua bài viết sau. Nguyên nhân khiến bạn bị mất gốc tiếng Anh Hiện nay nhiều bạn học sinh, sinh viên và người đi làm đều gặp nhiều rào cản trong học tập và công việc vì thiếu kỹ năng ngoại ngữ. Những lỗ hổng về kiến thức tiếng Anh ngày càng nhiều khiến bạn nhớ nhớ quên quên. Vậy đâu là lý do khiến người học bị mất nền tảng Anh ngữ? Chủ quan trong học tập: Khi đạt được một số thành tựu về Anh ngữ như điểm số cao, chứng chỉ ngoại ngữ thì nhiều người có xu hướng thỏa mãn. Họ chểnh mảnh trong quá trình học hoặc ngừng ôn luyện hoàn toàn. Không có động lực học: Việc thiếu “sức đẩy” khiến bạn không muốn duy trì và theo đuổi lộ trình học từ đầu. Song, khi đứng trước tình huống cần sử dụng tiếng Anh thì bạn sẽ vô cùng bối rối vì vốn kiến thức tưởng có mà không của mình. Học lệch kỹ năng: Có nhiều bạn dành phần lớn thời gian chỉ để luyện ngữ pháp, đọc hoặc thuần giao tiếp mà thiếu sự hài hòa các kỹ năng. Điều này dẫn đến việc bạn dễ gặp các vấn đề về phát âm, nghe hoặc viết đúng chính tả khi thực hiện các kỹ năng yếu hơn.",
+  "image":"/assets/post/english-books-resting-table-working-space 1.png",
+  "title":"Lộ v  trì nh học x x tiế ng a nh cho người mất gốc từ z A - Z",
+  "categoryId":2,
+  "subcategoryId":4
+}
+
+### 
+GET  {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+
+### 
+GET  {{baseUrl}}/by/lo-trinh-hoc-tieng-anh-cho-nguoi-mat-goc-tu-a-z-7 HTTP/1.1
+content-type: application/json

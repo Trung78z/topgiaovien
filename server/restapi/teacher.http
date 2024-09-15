@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:8080/api
+GET {{baseUrl}}/teacher HTTP/1.1
+content-type: application/json
+
+###
+POST {{baseUrl}}/teacher HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Đoàn Hà Phương",
+  "teacher": "English",
+  "position": "Academic Director tại TopGiaovien",
+  "experience": "Trên 2 năm kinh nghiệm dạy IELTS",
+  "specialty": "Sở trường các lớp IELTS đủ level, Toeic",
+  "education": "Cử nhân ĐH Tôn Đức Thắng GPA 8.58",
+  "ieltsOverall": "8.0 IELTS Overall"
+}

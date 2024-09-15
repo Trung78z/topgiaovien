@@ -1,0 +1,11 @@
+@baseUrl = http://localhost:8080/api/course
+GET {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+
+###
+GET {{baseUrl}}/ HTTP/1.1
+content-type: application/json
+
+###
+DELETE  {{baseUrl}}/067bf080-6b7a-4045-8574-16f7ae36202a HTTP/1.1
+content-type: application/json

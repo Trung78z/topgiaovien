@@ -1,0 +1,63 @@
+model courseCategory {
+  id                Int                 @id @default(autoincrement())
+  content           String
+  course            course[]
+  teacher           teacher[]
+  courseSubCategory courseSubCategory[]
+}
+
+model courseSubCategory {
+  id               Int             @id @default(autoincrement())
+  content          String
+  course           course[]
+  teacher          teacher[]
+  courseCategory   courseCategory? @relation(fields: [courseCategoryId], references: [id], onDelete: Cascade)
+  courseCategoryId Int?
+}
+
+model course {
+  id                  Int                @id @default(autoincrement())
+  title               String?
+  urlChoice           String?            @default("DM2ChbGOjKE")
+  slug                String?            @unique
+  content             String?            @db.VarChar(500)
+  image               String?
+  typeLearn           typeLearn          @default(All)
+  review              String?            @db.VarChar(255)
+  goal                String?            @db.VarChar(255)
+  satisfied           String?            @db.VarChar(255)
+  differentTitle1     String?
+  differentContent1   String?            @db.VarChar(1000)
+  differentTitle2     String?
+  differentContent2   String?            @db.VarChar(1000)
+  differentTitle3     String?
+  differentContent3   String?            @db.VarChar(1000)
+  reviewCourseTitle1  String?
+  reviewCourseImage1  String?
+  reviewCourseTitle2  String?
+  reviewCourseImage2  String?
+  reviewCourseTitle3  String?
+  reviewCourseImage3  String?
+  reviewCourseTitle4  String?
+  reviewCourseImage4  String?
+  linkChat            String?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  routeDetail         routeDetail[]
+  courseCategory      courseCategory?    @relation(fields: [courseCategoryId], references: [id], onDelete: Cascade)
+  courseCategoryId    Int?
+  careCourse          careCourse[]
+  courseSubCategory   courseSubCategory? @relation(fields: [courseSubCategoryId], references: [id], onDelete: Cascade)
+  courseSubCategoryId Int?
+  location            location?          @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId          Int?
+}
+
+model routeDetail {
+  id             Int     @id @default(autoincrement())
+  content        String
+  subjectOfStudy String? @db.Text()
+  goalLearn      String? @db.Text()
+  course         course? @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  courseId       Int?
+}
