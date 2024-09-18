@@ -35,7 +35,7 @@ export default function SectionBanner() {
             loop
             modules={[Pagination, Autoplay]}
             autoplay={{
-              delay: 2500,
+              delay: 6000,
               disableOnInteraction: false,
             }}
             spaceBetween={0}
@@ -49,7 +49,7 @@ export default function SectionBanner() {
                   src={`${API_URL}/api/file/banner/${item.image}`}
                   width={1920}
                   height={500}
-                  className="h-[200px] w-full flex-1 object-cover object-center md:h-[500px]"
+                  className="w-full flex-1 object-contain object-center sm:object-cover md:h-[500px]"
                   alt={item?.alt || "banner top giao vien"}
                 />
               </SwiperSlide>
