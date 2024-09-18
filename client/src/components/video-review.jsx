@@ -29,13 +29,13 @@ export default function ReviewVideo({ data }) {
         >
           {data?.map((item) => (
             <SwiperSlide key={item.id} className="relative">
-              <Link to={item?.url} target="_blank">
+              <Link to={item?.url} target="_blank" className="hover:opacity-50">
                 <img
                   loading="lazy"
                   src={`${API_URL}/api/file/review/${item.image}`}
                   width={1920}
                   height={500}
-                  className="h-[200px] w-full flex-1 rounded-lg border-2 border-primary-500 object-cover object-center"
+                  className="h-[200px] w-full flex-1 rounded-lg border-2 border-primary-500 object-cover object-center transition-transform ease-linear hover:scale-95"
                   alt={"Review tại top giáo viên"}
                 />
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/35 p-1">

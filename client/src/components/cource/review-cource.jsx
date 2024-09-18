@@ -22,10 +22,10 @@ export default function ReviewCourses() {
       <div className="container mx-auto space-y-6 px-2 py-2">
         <div className="w-full space-y-3">
           <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-            Những yêu thương từ TopGiaoVien
+            Những yêu thương từ học viên của Top giáo viên
           </h2>
           <p className="text-center text-[16px]">
-            Những chia sẻ của Vietopies về trải nghiệm học tập và hành trình
+            Những chia sẻ của học viên về trải nghiệm học tập và hành trình
             chinh phục điểm IELTS tại TopGiaoVien.
           </p>
         </div>

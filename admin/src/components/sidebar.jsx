@@ -85,7 +85,7 @@ export default function SidebarTopTeacher() {
                 <AccordionItem value={itemS.id} key={itemS.id}>
                   <AccordionTrigger
                     className={cn(
-                      "flex h-0 min-w-[80%] items-center gap-x-2 rounded-md px-2 py-4 text-background hover:bg-primary-600",
+                      "flex h-0 min-w-[80%] items-center gap-x-2 rounded-md px-2 py-3 text-sm text-background hover:bg-primary-600",
                       pathname.startsWith(itemS.url) &&
                         "bg-[#509CDB] hover:bg-[#4f88b3]",
                     )}
@@ -95,7 +95,7 @@ export default function SidebarTopTeacher() {
                   {itemS.sub.map((item) => (
                     <AccordionContent
                       className={cn(
-                        "mt-2 flex h-0 min-w-[80%] items-center gap-x-2 rounded-md px-2 py-4 hover:bg-primary-600",
+                        "mt-2 flex h-0 min-w-[80%] items-center gap-x-2 rounded-md px-2 py-3 hover:bg-primary-600",
                         pathname.endsWith(item.url) &&
                           "bg-[#509CDB] hover:bg-[#4f88b3]",
                       )}
@@ -103,7 +103,7 @@ export default function SidebarTopTeacher() {
                     >
                       <Link
                         to={`${itemS.url}${item?.url}`}
-                        className="flex flex-1 items-center justify-center text-background"
+                        className="flex flex-1 items-center justify-center text-sm text-background"
                       >
                         {item?.title}
                       </Link>

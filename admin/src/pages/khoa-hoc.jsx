@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { formatContent } from "@/lib/utils";
 import { API_URL } from "@/services/apiService";
 import { deleteCourse, getAllCourse } from "@/services/courseService";
 import { useEffect, useState } from "react";
@@ -115,11 +116,12 @@ export default function Course() {
             <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-[16px] font-medium">
-                  Tiêu đề
-                </TableHead>
+                <TableHead className="text-[16px] font-medium">Title</TableHead>
                 <TableHead className="text-[16px] font-medium">
                   Category
+                </TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Sub Category
                 </TableHead>
                 <TableHead className="text-[16px] font-medium">
                   Content
@@ -138,7 +140,12 @@ export default function Course() {
                   <TableCell className="font-medium">
                     {item?.courseCategory.content}
                   </TableCell>
-                  <TableCell className="font-medium">{item?.content}</TableCell>
+                  <TableCell className="font-medium">
+                    {item?.courseSubCategory.content}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.content, 100)}
+                  </TableCell>
                   <TableCell className="font-medium">
                     {" "}
                     <a

@@ -66,8 +66,8 @@ export default function ScheduleNews() {
             </h1>
             <h2 className="max-w-screen-sm text-center text-sm text-neutral-555F6D">
               Cập nhật các thông tin sự kiện, lịch mở lớp, tài liệu mới nhất của
-              Topgiaovien hoặc thông báo chính thức do Topgiaovien tổ chức, đồng
-              hành và tài trợ.
+              Top giáo viênhoặc thông báo chính thức do Top giáo viêntổ chức,
+              đồng hành và tài trợ.
             </h2>
           </div>
         </div>

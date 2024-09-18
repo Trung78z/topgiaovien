@@ -186,40 +186,43 @@ export default function CategoryCourse() {
             </DialogContent>
           </Dialog>
         </div>
-
-        <Table>
-          <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-[16px] font-medium">ID</TableHead>
-              <TableHead className="text-[16px] font-medium">Title</TableHead>
-              <TableHead className="text-[16px] font-medium">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="max-h-[65vh]">
-            {data.map((item, key) => (
-              <TableRow key={item?.id}>
-                <TableCell className="font-medium">{key + 1}</TableCell>
-                <TableCell className="font-medium">{item?.content}</TableCell>
-                <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                  <EditCate item={item} setData={setData} />
-                  <EditBanner
-                    item={item}
-                    dataUpdateZ={data}
-                    setData={setData}
-                  />
-
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    disabled={data.length > 3 ? false : true}
-                  >
-                    <FaDeleteLeft className="h-4 w-4 text-red-500" />
-                  </button>
-                </TableCell>
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="text-[16px] font-medium">ID</TableHead>
+                <TableHead className="text-[16px] font-medium">Title</TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Option
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody className="max-h-[65vh]">
+              {data.map((item, key) => (
+                <TableRow key={item?.id}>
+                  <TableCell className="font-medium">{key + 1}</TableCell>
+                  <TableCell className="font-medium">{item?.content}</TableCell>
+                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                    <EditCate item={item} setData={setData} />
+                    <EditBanner
+                      item={item}
+                      dataUpdateZ={data}
+                      setData={setData}
+                    />
+
+                    <button
+                      onClick={() => handleDelete(item.id)}
+                      disabled={data.length > 3 ? false : true}
+                    >
+                      <FaDeleteLeft className="h-4 w-4 text-red-500" />
+                    </button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );
@@ -417,39 +420,40 @@ const EditBanner = ({ item, dataUpdateZ, setData }) => {
           <DialogHeader>
             <DialogTitle>Danh sách doanh mục</DialogTitle>
             <DialogDescription className="space-y-6 pt-4">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-[16px] font-medium">
-                      ID
-                    </TableHead>
-                    <TableHead className="text-[16px] font-medium">
-                      Title
-                    </TableHead>
-                    <TableHead className="text-[16px] font-medium">
-                      Option
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-
-                <TableBody className="max-h-[65vh]">
-                  {item?.courseSubCategory?.map((item, key) => (
-                    <TableRow key={item?.id}>
-                      <TableCell className="font-medium">{key + 1}</TableCell>
-                      <TableCell className="font-medium">
-                        {item?.content}
-                      </TableCell>
-                      <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                        <FaDeleteLeft
-                          className="h-4 w-4 cursor-pointer text-red-500"
-                          onClick={() => handleDelete(item.id)}
-                        />
-                      </TableCell>
+              <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="text-[16px] font-medium">
+                        ID
+                      </TableHead>
+                      <TableHead className="text-[16px] font-medium">
+                        Title
+                      </TableHead>
+                      <TableHead className="text-[16px] font-medium">
+                        Option
+                      </TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
 
+                  <TableBody className="max-h-[65vh]">
+                    {item?.courseSubCategory?.map((item, key) => (
+                      <TableRow key={item?.id}>
+                        <TableCell className="font-medium">{key + 1}</TableCell>
+                        <TableCell className="font-medium">
+                          {item?.content}
+                        </TableCell>
+                        <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                          <FaDeleteLeft
+                            className="h-4 w-4 cursor-pointer text-red-500"
+                            onClick={() => handleDelete(item.id)}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex items-center justify-center"

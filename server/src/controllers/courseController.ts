@@ -118,7 +118,15 @@ export const editCourseByStep = async (req: Request, res: Response) => {
         .status(200)
         .json({ success: false, msg: "category của course không tồn tại!" });
     }
-    const findByTitle = await courseService.getCourseByTitleService(
+
+    const findById = await courseService.getCourseByIdService(parseInt(id));
+    if (!findById) {
+      return res
+        .status(200)
+        .json({ success: false, msg: "Khóa học này không tồn tại!" });
+    }
+    const findByTitle = await courseService.getCourseByIdTitleService(
+      parseInt(id),
       title,
       dataCate.content
     );
@@ -127,13 +135,6 @@ export const editCourseByStep = async (req: Request, res: Response) => {
         .status(200)
         .json({ success: false, msg: "Tựa đề khóa học này đã tồn tại!" });
     }
-    const findById = await courseService.getCourseByIdService(parseInt(id));
-    if (!findById) {
-      return res
-        .status(200)
-        .json({ success: false, msg: "Khóa học này không tồn tại!" });
-    }
-
     await courseService.editCourseServiceByStep(
       parseInt(id),
       title,

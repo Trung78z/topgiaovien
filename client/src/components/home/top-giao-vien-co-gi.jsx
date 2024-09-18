@@ -46,7 +46,7 @@ export default function TopGiaoVienHave() {
             mình muốn học. Không còn phải đăng ký khóa học mà không biết ai là
             người dạy mình, có thật sự phù hợp với mình không, có đồng đều chất
             lượng với các giáo viên không, feedback thật về giáo viên như thế
-            nào. Hơn nửa đội ngũ Topgiaovien được tuyển chọn, kết nạp kỹ lượng,
+            nào. Hơn nửa đội ngũ Top giáo viênđược tuyển chọn, kết nạp kỹ lượng,
             bạn cũng không còn lạc giữa rừng sự lựa chọn. Bởi “Top” ở đây là
             chất lượng và giới hạn. Từ nay, bạn sẽ không còn phải tìm hiểu trung
             tâm, tìm hiểu giáo viên rồi đến lúc vào học lại học với một giáo

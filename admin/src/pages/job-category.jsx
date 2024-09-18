@@ -225,84 +225,87 @@ export default function JobCategory() {
             </DialogContent>
           </Dialog>
         </div>
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="text-[16px] font-medium">ID</TableHead>
+                <TableHead className="text-[16px] font-medium">Title</TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Sub title
+                </TableHead>
 
-        <Table>
-          <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-[16px] font-medium">ID</TableHead>
-              <TableHead className="text-[16px] font-medium">Title</TableHead>
-              <TableHead className="text-[16px] font-medium">
-                Sub title
-              </TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Option
+                </TableHead>
+              </TableRow>
+            </TableHeader>
 
-              <TableHead className="text-[16px] font-medium">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody className="max-h-[65vh]">
-            {data
-              .reduce((acc, category) => {
-                const subCategories = category.applicationSubCategory.map(
-                  (sub) => ({
-                    id: category.id,
-                    category: category.content,
-                    subCategory: sub.content,
-                    subId: sub.id,
-                  }),
-                );
-                return acc.concat(subCategories);
-              }, [])
-              .map((item, key) => (
-                <TableRow key={item?.subId}>
-                  <TableCell className="font-medium">{key + 1}</TableCell>
-                  <TableCell className="font-medium">
-                    {item?.category}
-                  </TableCell>
-                  <TableCell className="font-medium">
-                    {item?.subCategory}
-                  </TableCell>
-
-                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                    <EditCate item={item} setData={setData} />
-                    <EditBanner item={item} setData={setData} />
-                    <FaDeleteLeft
-                      className="h-4 w-4 cursor-pointer text-red-500"
-                      onClick={() => handleSubDelete(item?.subId)}
-                    />
-                  </TableCell>
-                </TableRow>
-              ))}
-            {data.map((item, key) => {
-              if (item.applicationSubCategory.length < 1) {
-                return (
-                  <TableRow key={item?.id}>
+            <TableBody className="max-h-[65vh]">
+              {data
+                .reduce((acc, category) => {
+                  const subCategories = category.applicationSubCategory.map(
+                    (sub) => ({
+                      id: category.id,
+                      category: category.content,
+                      subCategory: sub.content,
+                      subId: sub.id,
+                    }),
+                  );
+                  return acc.concat(subCategories);
+                }, [])
+                .map((item, key) => (
+                  <TableRow key={item?.subId}>
+                    <TableCell className="font-medium">{key + 1}</TableCell>
                     <TableCell className="font-medium">
-                      {data.length + key - 2}
+                      {item?.category}
                     </TableCell>
                     <TableCell className="font-medium">
-                      {item?.content}
+                      {item?.subCategory}
                     </TableCell>
-                    <TableCell className="font-medium">
-                      Chưa có sub title
-                    </TableCell>
-                    {console.log(item)}
+
                     <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
                       <EditCate item={item} setData={setData} />
                       <EditBanner item={item} setData={setData} />
                       <FaDeleteLeft
                         className="h-4 w-4 cursor-pointer text-red-500"
-                        onClick={() => handleDelete(item.id)}
+                        onClick={() => handleSubDelete(item?.subId)}
                       />
                     </TableCell>
                   </TableRow>
-                );
-              }
-              // Trả về null nếu không muốn hiển thị hàng
-              return null;
-            })}
-          </TableBody>
-        </Table>
+                ))}
+              {data.map((item, key) => {
+                if (item.applicationSubCategory.length < 1) {
+                  return (
+                    <TableRow key={item?.id}>
+                      <TableCell className="font-medium">
+                        {data.length + key - 2}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {item?.content}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        Chưa có sub title
+                      </TableCell>
+                      {console.log(item)}
+                      <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                        <EditCate item={item} setData={setData} />
+                        <EditBanner item={item} setData={setData} />
+                        <FaDeleteLeft
+                          className="h-4 w-4 cursor-pointer text-red-500"
+                          onClick={() => handleDelete(item.id)}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+                // Trả về null nếu không muốn hiển thị hàng
+                return null;
+              })}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );

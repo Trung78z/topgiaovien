@@ -89,66 +89,70 @@ export default function ShareWithFacebook() {
             <Button>Thêm bài chia sẻ</Button>
           </Link>
         </div>
-        <Table>
-          <TableCaption>A list of your share TopGiaoVien .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-[16px] font-medium">ID</TableHead>
-              <TableHead className="text-[16px] font-medium">Title</TableHead>
-              <TableHead className="text-[16px] font-medium">
-                Link bài share
-              </TableHead>
-              <TableHead className="text-[16px] font-medium">
-                Hình ảnh
-              </TableHead>{" "}
-              <TableHead className="text-[16px] font-medium">
-                Trạng thái
-              </TableHead>{" "}
-              <TableHead className="text-[16px] font-medium">
-                Giáo viên
-              </TableHead>
-              <TableHead className="text-[16px] font-medium">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody className="max-h-[65vh]">
-            {data.map((item, key) => (
-              <TableRow key={item?.id}>
-                <TableCell className="font-medium">{key + 1}</TableCell>
-                <TableCell className="font-medium">
-                  {formatContent(item?.content, 20)}
-                </TableCell>
-                <TableCell className="font-medium">
-                  {formatContent(item?.link, 20)}
-                </TableCell>
-                <TableCell className="font-medium">
-                  {item?.image ? (
-                    <a
-                      href={`${API_URL}/api/file/share/${item?.image}`}
-                      target="_blank"
-                    >
-                      Hình ảnh
-                    </a>
-                  ) : (
-                    "Chưa có hình ảnh"
-                  )}
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  {item?.active === true ? "Đã kích hoạt" : "Chưa kích hoạt"}
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  {item.teacher ? item.teacher.name : <>Tất cả</>}
-                </TableCell>
-                <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                  <FaDeleteLeft
-                    className="h-4 w-4 cursor-pointer text-red-500"
-                    onClick={() => handleDelete(item.id)}
-                  />
-                </TableCell>
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your share TopGiaoVien .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="text-[16px] font-medium">ID</TableHead>
+                <TableHead className="text-[16px] font-medium">Title</TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Link bài share
+                </TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Hình ảnh
+                </TableHead>{" "}
+                <TableHead className="text-[16px] font-medium">
+                  Trạng thái
+                </TableHead>{" "}
+                <TableHead className="text-[16px] font-medium">
+                  Giáo viên
+                </TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Option
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+
+            <TableBody className="max-h-[65vh]">
+              {data.map((item, key) => (
+                <TableRow key={item?.id}>
+                  <TableCell className="font-medium">{key + 1}</TableCell>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.content, 20)}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.link, 20)}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {item?.image ? (
+                      <a
+                        href={`${API_URL}/api/file/share/${item?.image}`}
+                        target="_blank"
+                      >
+                        Hình ảnh
+                      </a>
+                    ) : (
+                      "Chưa có hình ảnh"
+                    )}
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    {item?.active === true ? "Đã kích hoạt" : "Chưa kích hoạt"}
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    {item.teacher ? item.teacher.name : <>Tất cả</>}
+                  </TableCell>
+                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                    <FaDeleteLeft
+                      className="h-4 w-4 cursor-pointer text-red-500"
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );

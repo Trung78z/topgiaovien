@@ -51,7 +51,7 @@ export default function BannerDetail({ props }) {
                 fill="#E05F3E"
               />
             </svg>
-            Topgiaovien member
+            Top giáo viênmember
           </h2>
           <h1 className="text-4xl font-semibold text-neutral-900 sm:text-[48px]">
             {props?.name}

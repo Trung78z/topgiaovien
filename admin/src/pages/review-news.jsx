@@ -80,57 +80,60 @@ export default function ReviewNews() {
             <Button>Thêm</Button>
           </Link>
         </div>
-
-        <Table>
-          <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-[16px] font-medium">ID</TableHead>
-              <TableHead className="text-[16px] font-medium">Title</TableHead>
-              <TableHead className="text-[16px] font-medium">
-                Description
-              </TableHead>{" "}
-              <TableHead className="text-[16px] font-medium">Image</TableHead>
-              <TableHead className="text-[16px] font-medium">Link</TableHead>
-              <TableHead className="text-[16px] font-medium">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody className="max-h-[65vh]">
-            {data.map((item, key) => (
-              <TableRow key={item?.id}>
-                <TableCell className="font-medium">{key + 1}</TableCell>
-                <TableCell className="font-medium">{item?.title}</TableCell>
-                <TableCell className="font-medium">
-                  {item?.description}
-                </TableCell>
-                <TableCell className="font-medium">
-                  <Link
-                    to={`${API_URL}/api/file/review/${item?.image}`}
-                    target="_blank"
-                  >
-                    {item?.image}
-                  </Link>
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  <Link to={item?.url} target="_blank">
-                    {item?.url}
-                  </Link>
-                </TableCell>
-                <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                  <FaEdit
-                    className="h-4 w-4 cursor-pointer text-green-500"
-                    onClick={() => handleEdit(item.id)}
-                  />
-                  <FaDeleteLeft
-                    className="h-4 w-4 cursor-pointer text-red-500"
-                    onClick={() => handleDelete(item.id)}
-                  />
-                </TableCell>
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your teacher TopGiaoVien .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="text-[16px] font-medium">ID</TableHead>
+                <TableHead className="text-[16px] font-medium">Title</TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Description
+                </TableHead>{" "}
+                <TableHead className="text-[16px] font-medium">Image</TableHead>
+                <TableHead className="text-[16px] font-medium">Link</TableHead>
+                <TableHead className="text-[16px] font-medium">
+                  Option
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+
+            <TableBody className="max-h-[65vh]">
+              {data.map((item, key) => (
+                <TableRow key={item?.id}>
+                  <TableCell className="font-medium">{key + 1}</TableCell>
+                  <TableCell className="font-medium">{item?.title}</TableCell>
+                  <TableCell className="font-medium">
+                    {item?.description}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    <Link
+                      to={`${API_URL}/api/file/review/${item?.image}`}
+                      target="_blank"
+                    >
+                      {item?.image}
+                    </Link>
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    <Link to={item?.url} target="_blank">
+                      {item?.url}
+                    </Link>
+                  </TableCell>
+                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                    <FaEdit
+                      className="h-4 w-4 cursor-pointer text-green-500"
+                      onClick={() => handleEdit(item.id)}
+                    />
+                    <FaDeleteLeft
+                      className="h-4 w-4 cursor-pointer text-red-500"
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );

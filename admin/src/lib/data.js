@@ -125,7 +125,7 @@ export const navLink = [
     sub: [
       { title: "Video", url: "/video" },
       { title: "News", url: "/news" },
-      // { title: "Thời gian", url: "/time" },
+      { title: "Image", url: "/image" },
     ],
   },
 ];

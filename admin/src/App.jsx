@@ -45,6 +45,7 @@ import EditReviewNew from "./pages/review-news-edit";
 import ReviewVideo from "./pages/review-video";
 import AddReviewVideo from "./pages/review-video-add";
 import EditReviewVideo from "./pages/review-video-edit";
+import ReviewEditImage from "./pages/review-edit-image";
 
 export default function App() {
   return (
@@ -150,8 +151,9 @@ export default function App() {
                     <Route
                       path="chinh-sua/:slug"
                       element={<EditReviewVideo />}
-                    ></Route>
+                    ></Route>{" "}
                   </Route>
+                  <Route path="image" element={<ReviewEditImage />}></Route>
                   <Route path="news" element={<LayoutTinTuc />}>
                     <Route path="" element={<ReviewNews />}></Route>
                     <Route path="them" element={<AddReviewNew />}></Route>

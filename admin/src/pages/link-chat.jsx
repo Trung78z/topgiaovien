@@ -142,52 +142,56 @@ export default function Linkchat() {
               </TableBody>
             </Table>
           ) : (
-            <Table>
-              <TableCaption>A list of your post .</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="">ID</TableHead>
-                  <TableHead className="">Tên khóa học</TableHead>
-                  <TableHead>Địa chỉ</TableHead>
-                  <TableHead className="">Loại khóa học</TableHead>
-                  <TableHead className="">Link chat</TableHead>
-                  <TableHead className="">Xem trang</TableHead>
-                  <TableHead className="">Option</TableHead>
-                </TableRow>
-              </TableHeader>
-
-              <TableBody>
-                {dataCourse.map((item, key) => (
-                  <TableRow key={item?.id}>
-                    <TableCell className="font-medium">{key + 1}</TableCell>
-                    <TableCell className="font-medium">{item?.title}</TableCell>
-                    <TableCell className="font-medium">
-                      {item?.location}
-                    </TableCell>
-                    <TableCell className="cursor-pointer font-medium">
-                      {item?.courseCategory?.content}
-                    </TableCell>
-                    <TableCell className="font-medium">
-                      {item?.linkChat ? item?.linkChat : "Chưa có"}
-                    </TableCell>
-
-                    <TableCell className="font-medium">
-                      <div className="text-center">
-                        <Link
-                          to={`${import.meta.env.VITE_API_URL_WEB}/khoa-hoc/${item.slug}`}
-                          target="_blank"
-                        >
-                          <FaRegEye />
-                        </Link>
-                      </div>
-                    </TableCell>
-                    <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                      <EditLinkCourse setData={setDataCourse} props={item} />
-                    </TableCell>
+            <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+              <Table>
+                <TableCaption>A list of your post .</TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="">ID</TableHead>
+                    <TableHead className="">Tên khóa học</TableHead>
+                    <TableHead>Địa chỉ</TableHead>
+                    <TableHead className="">Loại khóa học</TableHead>
+                    <TableHead className="">Link chat</TableHead>
+                    <TableHead className="">Xem trang</TableHead>
+                    <TableHead className="">Option</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+
+                <TableBody>
+                  {dataCourse.map((item, key) => (
+                    <TableRow key={item?.id}>
+                      <TableCell className="font-medium">{key + 1}</TableCell>
+                      <TableCell className="font-medium">
+                        {item?.title}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {item?.location}
+                      </TableCell>
+                      <TableCell className="cursor-pointer font-medium">
+                        {item?.courseCategory?.content}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {item?.linkChat ? item?.linkChat : "Chưa có"}
+                      </TableCell>
+
+                      <TableCell className="font-medium">
+                        <div className="text-center">
+                          <Link
+                            to={`${import.meta.env.VITE_API_URL_WEB}/khoa-hoc/${item.slug}`}
+                            target="_blank"
+                          >
+                            <FaRegEye />
+                          </Link>
+                        </div>
+                      </TableCell>
+                      <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                        <EditLinkCourse setData={setDataCourse} props={item} />
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
         </div>
       </div>

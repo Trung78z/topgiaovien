@@ -81,7 +81,17 @@ export default function EditStepCourse() {
     });
     if (result.isConfirmed) {
       try {
-        await EditCourseStep(slug, data);
+        const res = await EditCourseStep(slug, data);
+        if (res.success === false) {
+          return Swal.fire({
+            icon: "error",
+            title: "Đã có lỗi xảy ra!",
+            text: res.msg,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+
         let timerInterval;
         Swal.fire({
           title: "Chuyển hướng trang!",
@@ -108,7 +118,6 @@ export default function EditStepCourse() {
           navigate(`/khoa-hoc/chinh-sua/${slug}`);
         }, 1500);
       } catch (error) {
-        console.log(error);
         return Swal.fire({
           icon: "error",
           title: "Đã có lỗi xảy ra!",
@@ -145,12 +154,14 @@ export default function EditStepCourse() {
               type="text"
               id="title"
               {...register("title")}
+              disabled={true}
               className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Enter your title"
             />
             {errors.title && (
               <p className="text-sm text-red-600">{errors.title.message}</p>
             )}
+            <button></button>
           </div>
           <div className="col-span-1">
             <label

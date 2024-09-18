@@ -14,6 +14,7 @@ import vipRoute from "./vip";
 import locationRoute from "./location";
 import reviewVideoRoute from "./reviewVideo";
 import zingNewsRoute from "./zingNews";
+import reviewImagefrom from "./reviewImage";
 const RootRouter = express();
 
 RootRouter.use("/auth", authRoute);
@@ -31,6 +32,7 @@ RootRouter.use("/vip", vipRoute);
 RootRouter.use("/location", locationRoute);
 RootRouter.use("/review-video", reviewVideoRoute);
 RootRouter.use("/zing-new", zingNewsRoute);
+RootRouter.use("/review-image", reviewImagefrom);
 
 RootRouter.get("/", (req, res) => {
   res.json({ exp: Math.floor(Date.now() / 1000) });

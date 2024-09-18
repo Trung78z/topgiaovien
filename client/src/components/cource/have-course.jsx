@@ -4,16 +4,20 @@ import { cn } from "@/lib/utils";
 import CardCourse from "./card-course";
 import { getCourseCategory } from "@/services/courseService";
 
-export default function CoursesTopGiaoVien({ props, topic }) {
-  const [active, setActive] = useState(1);
-  const [category, setCategory] = useState([]);
+export default function CoursesTopGiaoVien({
+  props,
+  topic,
+  active,
+  handleSeletion,
+  category,
+  setCategory,
+}) {
   const [data, setData] = useState(props);
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await getCourseCategory();
-        const allSubCategories = res.msg
+        const allSubCategories = category
           .map((category) => category.courseSubCategory)
           .reduce((acc, subArray) => acc.concat(subArray), []);
 
@@ -24,15 +28,14 @@ export default function CoursesTopGiaoVien({ props, topic }) {
     };
     fetch();
   }, []);
-  useEffect(() => {
-    setData(props);
-  }, [props]);
-  const handleSeletion = (data) => {
-    setActive(data);
-    const update = props.filter((item) => item.courseSubCategoryId === data);
-    setData(update);
-  };
 
+  useEffect(() => {
+    if (topic) {
+      return setData(props);
+    }
+    const update = props.filter((item) => item.courseSubCategoryId === active);
+    setData(update);
+  }, [active, props]);
   return (
     <>
       <div className="container mx-auto space-y-6 px-0">

@@ -287,7 +287,7 @@ export default function TeacherEnglish({ categoryCourseParent, dataParent }) {
               <button
                 onClick={() => setCurrentPage((prev) => prev - 1)}
                 disabled={currentPage <= 1 ? true : false}
-                className="absolute -left-10 top-1/2 -translate-y-1/2"
+                className="absolute -left-10 top-1/2 hidden -translate-y-1/2 sm:block"
               >
                 <FaAngleLeft
                   className={cn(
@@ -299,7 +299,7 @@ export default function TeacherEnglish({ categoryCourseParent, dataParent }) {
               <button
                 disabled={currentPage >= totalPages ? true : false}
                 onClick={() => setCurrentPage((prev) => prev + 1)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 sm:-right-10"
+                className="absolute right-0 top-1/2 hidden -translate-y-1/2 sm:-right-10 sm:block"
               >
                 <FaAngleRight
                   className={cn(

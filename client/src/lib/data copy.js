@@ -52,7 +52,7 @@ const data = [
       {
         id: 122,
         content:
-          "Học thầy giúp mình tiến bộ cực kì nhanh luôn, cảm ơn thầy và Topgiaovien nhiều ",
+          "Học thầy giúp mình tiến bộ cực kì nhanh luôn, cảm ơn thầy và Top giáo viênnhiều ",
         level: "5",
         image: null,
         teacherId: "38985cf",

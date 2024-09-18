@@ -1,13 +1,13 @@
 import { cn, getRandomAllItems } from "@/lib/utils";
 import { Button } from "@headlessui/react";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { getAllTeacher } from "@/services/teacherDetailService";
 import { API_URL } from "@/services/apiService";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
-export default function GiaoVienTinhHoa({ dataSearch }) {
+function GiaoVienTinhHoa({ dataSearch }) {
   const [dataCheck, setDataCheck] = useState([]);
   const [dataActive, setDataActive] = useState();
   const [data, setData] = useState([]);
@@ -17,10 +17,12 @@ export default function GiaoVienTinhHoa({ dataSearch }) {
 
   useEffect(() => {
     setDataCheck(dataSearch);
-    console.log(dataSearch);
+  }, [dataSearch]);
+
+  useEffect(() => {
     const fetch = async () => {
       const data = await getAllTeacher();
-      console.log(data);
+
       const randomData = getRandomAllItems(data.msg);
 
       const filter = randomData.filter((item) => item.courseCategoryId === 1);
@@ -34,7 +36,7 @@ export default function GiaoVienTinhHoa({ dataSearch }) {
       }
     };
     fetch();
-  }, [dataSearch]);
+  }, []);
   const handleSelection = (value) => {
     scrollToTarget();
     const update = data.find((item) => item.id === value);
@@ -105,16 +107,17 @@ export default function GiaoVienTinhHoa({ dataSearch }) {
               Giáo viên hàng đầu
             </h2>
           </div>
-          <div className="mx-auto grid grid-cols-2 gap-2 pt-10 sm:max-w-[580px] sm:grid-cols-3">
+          <div className="mx-auto grid grid-cols-2 gap-2 pt-10 sm:max-w-[600px] sm:grid-cols-3 sm:gap-4">
             {dataCheck.map((row, key) => {
               return (
                 <Button
                   className={cn(
-                    "mx-auto w-max rounded-lg border-2 p-2 text-sm font-medium sm:px-4",
+                    "mx-auto w-max rounded-lg border-2 p-1 text-sm font-medium sm:px-4",
                     row.active
                       ? "bg-primary-500 text-white hover:bg-primary-400 hover:text-white"
                       : "hover:bg-slate-50 hover:text-gray-700",
-                    key === 2 && "col-span-2 w-max sm:col-span-1",
+                    key === 2 && "col-span-2 sm:col-span-1",
+                    key === 0 && "sm:ml-3",
                   )}
                   type="button"
                   key={`${row.id}`}
@@ -138,7 +141,7 @@ export default function GiaoVienTinhHoa({ dataSearch }) {
                   <button
                     onClick={() => setCurrentPage((prev) => prev - 1)}
                     disabled={currentPage <= 1 ? true : false}
-                    className="absolute -left-10 top-1/2 -translate-y-1/2"
+                    className="absolute -left-10 top-1/2 hidden -translate-y-1/2 sm:block"
                   >
                     <FaAngleLeft
                       className={cn(
@@ -150,7 +153,7 @@ export default function GiaoVienTinhHoa({ dataSearch }) {
                   <button
                     disabled={currentPage >= totalPages ? true : false}
                     onClick={() => setCurrentPage((prev) => prev + 1)}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 sm:-right-10"
+                    className="absolute right-0 top-1/2 hidden -translate-y-1/2 sm:-right-10 sm:block"
                   >
                     <FaAngleRight
                       className={cn(
@@ -388,3 +391,5 @@ const TeacherProfile = ({ dataActive }) => {
     </>
   );
 };
+
+export default memo(GiaoVienTinhHoa);

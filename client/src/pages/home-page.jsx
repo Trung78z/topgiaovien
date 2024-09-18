@@ -33,12 +33,6 @@ const typeCourse = [
   { type: "Offline", value: "Offline" },
   { type: "Tất cả", value: "All" },
 ];
-const dataProvince = [
-  { direct: "Quận Bình Thạnh" },
-  { direct: "Quận 1" },
-  { direct: "Quận 2" },
-  { direct: "Quận Gò Vấp" },
-];
 const schema = z.object({
   location: z
     .string({ required_error: "Vui lòng chọn địa điểm bạn muốn học" })
@@ -49,6 +43,7 @@ const schema = z.object({
 });
 export default function HomePage() {
   const [categoryCourse, setCategoryCourse] = useState([]);
+  const [allSubCategoryCourse, setAllSubCategoryCourse] = useState([]);
   const {
     handleSubmit,
     formState: { errors },
@@ -62,6 +57,11 @@ export default function HomePage() {
     const fetch = async () => {
       try {
         const res = await getCourseCategory();
+
+        const allSubCategories = res.msg
+          .map((category) => category.courseSubCategory)
+          .reduce((acc, subArray) => acc.concat(subArray), []);
+        setAllSubCategoryCourse(allSubCategories);
         setCategoryCourse(res.msg);
       } catch (error) {
         console.log(error);
@@ -127,7 +127,7 @@ export default function HomePage() {
               </SelectTrigger>
 
               <SelectContent className="z-10 bg-white">
-                {categoryCourse?.map((item, index) => (
+                {allSubCategoryCourse?.map((item, index) => (
                   <SelectItem
                     value={item.content}
                     key={`${item.content}+${index}`}

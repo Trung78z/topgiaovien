@@ -59,83 +59,88 @@ export default function Job() {
             <Button>Thêm mới</Button>
           </Link>
         </div>
-        <Table>
-          <TableCaption>A list of your post .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="">ID</TableHead>
-              <TableHead className="">Tiêu đề</TableHead>
-              <TableHead className="">Nhiệm vụ</TableHead>
-              <TableHead>Yêu cầu</TableHead>
-              <TableHead className="">Quyền lợi</TableHead>
-              <TableHead className="">Địa điểm</TableHead>
-              <TableHead className="">Lương</TableHead>{" "}
-              <TableHead className="">Hạn nộp</TableHead>{" "}
-              <TableHead className="text-[16px] font-medium">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((item, key) => (
-              <TableRow key={item?.id}>
-                <TableCell className="font-medium">{key + 1}</TableCell>
-                <TableCell className="font-medium">
-                  {formatContent(item?.title, 30)}
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: formatContent(
-                        item?.responsibilities.replace(/<\/?[^>]+>/gi, ""),
-                        30,
-                      ),
-                    }}
-                  ></div>
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: formatContent(
-                        item?.requirements.replace(/<\/?[^>]+>/gi, ""),
-                        30,
-                      ),
-                    }}
-                  ></div>
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: formatContent(
-                        item?.benefits.replace(/<\/?[^>]+>/gi, ""),
-                        30,
-                      ),
-                    }}
-                  ></div>
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  {formatContent(item?.location, 30)}
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  {formatContent(item?.salary, 30)}
-                </TableCell>{" "}
-                <TableCell className="font-medium">
-                  {new Date(item?.applicationDeadline).toLocaleDateString(
-                    "vi-VN",
-                  )}
-                </TableCell>
-                <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                  <FaEdit
-                    className="h-4 w-4 cursor-pointer text-green-500"
-                    onClick={() => handleEdit(item.id)}
-                  />
-                  <FaDeleteLeft
-                    className="h-4 w-4 cursor-pointer text-red-500"
-                    onClick={() => handleDelete(item.id)}
-                  />
-                </TableCell>
+
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your post .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="">ID</TableHead>
+                <TableHead className="">Tiêu đề</TableHead>
+                <TableHead className="">Nhiệm vụ</TableHead>
+                <TableHead>Yêu cầu</TableHead>
+                <TableHead className="">Quyền lợi</TableHead>
+                <TableHead className="">Địa điểm</TableHead>
+                <TableHead className="">Lương</TableHead>{" "}
+                <TableHead className="">Hạn nộp</TableHead>{" "}
+                <TableHead className="text-[16px] font-medium">
+                  Option
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {data.map((item, key) => (
+                <TableRow key={item?.id}>
+                  <TableCell className="font-medium">{key + 1}</TableCell>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.title, 30)}
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(
+                          item?.responsibilities.replace(/<\/?[^>]+>/gi, ""),
+                          30,
+                        ),
+                      }}
+                    ></div>
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(
+                          item?.requirements.replace(/<\/?[^>]+>/gi, ""),
+                          30,
+                        ),
+                      }}
+                    ></div>
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(
+                          item?.benefits.replace(/<\/?[^>]+>/gi, ""),
+                          30,
+                        ),
+                      }}
+                    ></div>
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    {formatContent(item?.location, 30)}
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    {formatContent(item?.salary, 30)}
+                  </TableCell>{" "}
+                  <TableCell className="font-medium">
+                    {new Date(item?.applicationDeadline).toLocaleDateString(
+                      "vi-VN",
+                    )}
+                  </TableCell>
+                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                    <FaEdit
+                      className="h-4 w-4 cursor-pointer text-green-500"
+                      onClick={() => handleEdit(item.id)}
+                    />
+                    <FaDeleteLeft
+                      className="h-4 w-4 cursor-pointer text-red-500"
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );

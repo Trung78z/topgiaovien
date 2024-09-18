@@ -33,6 +33,10 @@ const schema = z.object({
     .number()
     .int()
     .positive("Vui lòng chọn một danh mục khóa học."),
+  specialty: z
+    .string()
+    .min(1, { message: "Vui lòng nhập sở trường của bạn!" })
+    .max(150, { message: "Vui lòng nhập ít kí tự hơn!" }),
   locationId: z.number().int().positive("Vui lòng chọn địa điểm cho khóa học!"),
   typeLearn: z.string().min(1, { message: "Vui lòng chọn hình thức dạy!" }),
 });
@@ -71,7 +75,7 @@ export default function EditTeacherStep() {
         setValue("locationId", res.msg.teacher.locationId);
         setValue("phone", res.msg.phone);
         setValue("email", res.msg.email);
-        setValue("email", res.msg.email);
+        setValue("specialty", res.msg.teacher.specialty);
         setValue("fullName", res.msg.fullName);
         setValue("courseCategoryId", res.msg.teacher.courseCategoryId);
         setValue("courseSubCategoryId", res.msg.teacher.courseSubCategoryId);
@@ -279,6 +283,25 @@ export default function EditTeacherStep() {
               <p className="text-sm text-red-600">
                 {errors.courseSubCategoryId.message}
               </p>
+            )}
+          </div>{" "}
+          <div className="col-span-1 sm:col-span-2">
+            <label
+              htmlFor="specialty"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Sở trường
+            </label>
+
+            <input
+              type="tel"
+              id="specialty"
+              {...register("specialty")}
+              className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              placeholder="Enter your specialty"
+            />
+            {errors.specialty && (
+              <p className="text-sm text-red-600">{errors.specialty.message}</p>
             )}
           </div>
           <div className="col-span-1">

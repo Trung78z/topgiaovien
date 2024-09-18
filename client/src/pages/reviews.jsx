@@ -18,6 +18,8 @@ import {
 import ReviewShareCourse from "@/components/home/share-review";
 import CardZingNew from "@/components/review/cardZingNew";
 import ImageMoment from "@/components/review/moment";
+import { getReviewImage } from "@/services/reviewIamge";
+import { API_URL } from "@/services/apiService";
 
 function getRandomImagesByRandomTeacher(data, count) {
   const teacherIds = [...new Set(data.map((item) => item.teacherId))];
@@ -44,18 +46,20 @@ export default function Reviews() {
   const [dataReviewVideo, setDataReviewVideo] = useState([]);
   const [firstPart, setFirstPart] = useState([]);
   const [secondPart, setSecondPart] = useState([]);
-  const [dataReviewNew, setDataReviewNew] = useState([
-    {
-      id: 3,
-      title: "Hành trình từ IELTS 5.5 lên 8.0 của nữ C&B Manager 35 tuổi",
-      description:
-        "Chị Đàm Kỳ Nhi (TP HCM) đã kiên trì vượt qua nhiều khó khăn khi vừa học vừa làm để đạt IELTS 8.0 sau 3,5 tháng. Mặc dù luôn được đồng nghiệp nhận xét là người phụ nữ tài giỏi và nhanh nhạy trong...",
-      image: "review-1725970063345-325307703.jpg",
-      url: "https://vnexpress.net/hanh-trinh-tu-ielts-5-5-len-8-0-cua-nu-c-amp-b-manager-35-tuoi-3987069.html",
-      createdAt: "2024-09-10T12:07:43.355Z",
-      updatedAt: "2024-09-10T12:07:43.355Z",
-    },
-  ]);
+  const [dataReviewNew, setDataReviewNew] = useState([]);
+  const [data, setData] = useState();
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await getReviewImage();
+        setData(res.msg);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetch();
+  }, []);
+
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -66,8 +70,6 @@ export default function Reviews() {
         const getData = getRandomImagesByRandomTeacher(resImage.msg, 5);
 
         setDataImageMoment(getData.images);
-
-        console.log(getData.images);
 
         setDataReviewNew(resNew.msg);
         const data = res.msg;
@@ -133,11 +135,11 @@ export default function Reviews() {
                 <p className="text-base">
                   Chúng tôi cam kết cung cấp chương trình giảng dạy tốt nhất,
                   chất lượng hàng đầu và sự tận tâm vượt ngoài mong đợi, để mỗi
-                  khóa học tại Topgiaovien không chỉ là cơ hội học tập mà còn là
-                  một hành trình nỗ lực đầy cảm hứng và thành công. Cùng khám
+                  khóa học tại Top giáo viênkhông chỉ là cơ hội học tập mà còn
+                  là một hành trình nỗ lực đầy cảm hứng và thành công. Cùng khám
                   phá những phản hồi đầy tích cực qua hình ảnh, video và bài
                   viết báo chí để cảm nhận niềm vui, sự tiến bộ và kết quả đáng
-                  tự hào của các học viên tại Topgiaovien bạn nhé!
+                  tự hào của các học viên tại Top giáo viênbạn nhé!
                 </p>
               </ul>
 
@@ -165,7 +167,10 @@ export default function Reviews() {
                     <HoverCardTrigger>
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (2).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image1}` ||
+                          "/assets/reviews/reviews (2).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full"
                         width={1920}
@@ -178,7 +183,10 @@ export default function Reviews() {
                     >
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (2).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image1}` ||
+                          "/assets/reviews/reviews (2).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full"
                         width={1920}
@@ -192,7 +200,10 @@ export default function Reviews() {
                     <HoverCardTrigger>
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (1).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image2}` ||
+                          "/assets/reviews/reviews (1).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full"
                         width={1920}
@@ -205,7 +216,10 @@ export default function Reviews() {
                     >
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (1).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image2}` ||
+                          "/assets/reviews/reviews (1).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full sm:max-h-[60vh]"
                         width={1920}
@@ -221,7 +235,10 @@ export default function Reviews() {
                     <HoverCardTrigger>
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (3).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image3}` ||
+                          "/assets/reviews/reviews (3).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full"
                         width={1920}
@@ -234,7 +251,10 @@ export default function Reviews() {
                     >
                       <img
                         loading="lazy"
-                        src="/assets/reviews/reviews (3).jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image3}` ||
+                          "/assets/reviews/reviews (3).jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full sm:max-h-[60vh]"
                         width={1920}
@@ -248,7 +268,10 @@ export default function Reviews() {
                     <HoverCardTrigger>
                       <img
                         loading="lazy"
-                        src="/assets/reviews/a67d2967ecd14b8f12c0.jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image4}` ||
+                          "/assets/reviews/a67d2967ecd14b8f12c0.jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full"
                         width={1920}
@@ -261,7 +284,10 @@ export default function Reviews() {
                     >
                       <img
                         loading="lazy"
-                        src="/assets/reviews/a67d2967ecd14b8f12c0.jpg"
+                        src={
+                          `${API_URL}/api/file/review/${data?.image4}` ||
+                          "/assets/reviews/a67d2967ecd14b8f12c0.jpg"
+                        }
                         alt="Top giáo viên"
                         className="h-[200px] min-w-full rounded-lg object-cover sm:h-full sm:max-h-[60vh]"
                         width={1920}
@@ -356,6 +382,168 @@ export default function Reviews() {
             ) : (
               <ReviewVideo data={dataReviewVideo} />
             )}
+          </div>
+        </div>
+        <div className="relative bg-[#EAEBF1]">
+          <div className="container space-y-6 px-2 sm:p-10">
+            <h2 className="text-3xl font-semibold text-primary-500">
+              Cảm nhận chân thực từ học viên
+            </h2>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="col-span-2 overflow-hidden rounded-lg md:col-span-1">
+                <div className="h-[400px]">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student1}` ||
+                          "/assets/views/139c6d0caaba0de454ab.jpg"
+                        }
+                        alt="Image 1"
+                        className="w-full object-cover"
+                      />
+                    </HoverCardTrigger>
+                    <HoverCardContent
+                      className="relative h-auto w-full max-w-[400px] bg-background"
+                      side="left"
+                    >
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student1}` ||
+                          "/assets/views/139c6d0caaba0de454ab.jpg"
+                        }
+                        alt="Image 1"
+                        className="h-full max-h-[80vh] w-full object-cover"
+                      />
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </div>
+
+              <div className="col-span-2 overflow-hidden rounded-lg">
+                <div className="h-[400px]">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student2}` ||
+                          "/assets/views/98646b83ac350b6b5224.jpg"
+                        }
+                        alt="Image 1"
+                        className="w-full object-cover"
+                      />
+                    </HoverCardTrigger>
+                    <HoverCardContent
+                      className="relative h-auto w-full max-w-[400px] bg-background"
+                      side="left"
+                    >
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student2}` ||
+                          "/assets/views/98646b83ac350b6b5224.jpg"
+                        }
+                        alt="Image 1"
+                        className="h-full max-h-[80vh] w-full object-cover"
+                      />
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </div>
+
+              <div className="col-span-1 overflow-hidden rounded-lg">
+                <div className="h-[300px]">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student3}` ||
+                          "/assets/views/450314186_510296627998130_1607084587494393215_n.jpg"
+                        }
+                        alt="Image 3"
+                        className="h-[300px] w-full object-cover"
+                      />
+                    </HoverCardTrigger>
+                    <HoverCardContent
+                      className="relative h-auto w-full max-w-[400px] bg-background"
+                      side="left"
+                    >
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student3}` ||
+                          "/assets/views/450314186_510296627998130_1607084587494393215_n.jpg"
+                        }
+                        alt="Image 3"
+                        className="h-full max-h-[80vh] w-full object-cover"
+                      />
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-lg">
+                <div className="h-[300px]">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student4}` ||
+                          "/assets/views/448962692_503948348632958_7003002282267846287_n.jpg"
+                        }
+                        alt="Image 4"
+                        className="h-[300px] w-full object-cover"
+                      />
+                    </HoverCardTrigger>
+                    <HoverCardContent
+                      className="relative h-auto w-full max-w-[400px] bg-background"
+                      side="left"
+                    >
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student4}` ||
+                          "/assets/views/448962692_503948348632958_7003002282267846287_n.jpg"
+                        }
+                        alt="Image 3"
+                        className="h-full max-h-[80vh] w-full object-cover"
+                      />
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </div>
+
+              <div className="col-span-2 overflow-hidden rounded-lg sm:col-span-1">
+                <div className="h-[300px]">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student5}` ||
+                          "/assets/views/454325077_527237496304043_2612364636192136533_n.jpg"
+                        }
+                        alt="Image 5"
+                        className="h-[300px] w-full object-cover"
+                      />
+                    </HoverCardTrigger>
+                    <HoverCardContent
+                      className="relative h-auto w-full max-w-[400px] bg-background"
+                      side="left"
+                    >
+                      <img
+                        src={
+                          `${API_URL}/api/file/review/${data?.student5}` ||
+                          "/assets/views/454325077_527237496304043_2612364636192136533_n.jpg"
+                        }
+                        alt="Image 5"
+                        className="h-full max-h-[80vh] w-full object-cover"
+                      />
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-1 sm:grid-cols-3 md:grid-cols-5">
+              <div className="col-span-1 sm:col-span-2 md:col-span-3"></div>
+              <div className="col-span-1 sm:col-span-1 md:col-span-2"></div>
+            </div>
           </div>
         </div>
         {dataReviewNew.length > 0 && (

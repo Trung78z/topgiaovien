@@ -8,7 +8,7 @@
     "db": "npx prisma migrate dev --name init --schema src/models",
     "seed": "npx prisma migrate reset --force",
     "build": "tsc",
-    "start": "npm run build  && node dist/index",
+    "start": " node dist/index",
     "deploy": " node dist/index"
   },
   "prisma": {

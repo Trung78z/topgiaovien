@@ -303,7 +303,7 @@ export default function EditTeacherDetail() {
                       fill="#E05F3E"
                     />
                   </svg>
-                  Topgiaovien member
+                  Top giáo viênmember
                 </h2>
                 <div className="max-w-max">
                   <input

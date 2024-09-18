@@ -60,17 +60,18 @@ export default function DoiNguTop() {
               alt="icon Đạt chuẩn giáo viên"
               width={40}
               height={40}
+              className="h-10 w-10"
             ></img>
             <h3 className="text-[20px] font-semibold text-neutral-600">
               Giáo viên cam kết với học viên
             </h3>
           </div>
 
-          <p className="text-justify leading-[22.4px]">
+          <p className="text-justify sm:text-start">
             Ở Topgiaovien, đội ngũ giáo viên sẽ trực tiếp cam kết chất lượng cho
-            học viên. Topgiaovien sẽ ở giữa đảm bảo quyền lợi cho cả học viên và
-            giáo viên. Đồng thời nếu bạn học tốt, đạt thành tích tốt còn được
-            Topgiaovien thưởng hoàn tiền học phí.
+            học viên. Top giáo viênsẽ ở giữa đảm bảo quyền lợi cho cả học viên
+            và giáo viên. Đồng thời nếu bạn học tốt, đạt thành tích tốt còn được
+            Top giáo viênthưởng hoàn tiền học phí.
           </p>
         </div>
 
@@ -82,13 +83,13 @@ export default function DoiNguTop() {
               alt="icon Trách nhiệm tạo nên sự tận tâm"
               width={40}
               height={40}
-              className=""
+              className="h-10 w-10"
             ></img>
             <h3 className="text-[20px] font-semibold text-neutral-600">
               Trách nhiệm tạo sự tận tâm
             </h3>
           </div>
-          <p className="text-justify leading-[22.4px]">
+          <p className="text-justify sm:text-start">
             Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ
             giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ
             trợ học viên ngoài giờ học thông qua zalo. Bởi sự hài lòng của học
@@ -97,7 +98,7 @@ export default function DoiNguTop() {
             và ảnh hưởng đến danh tiếng của giáo viên
           </p>
         </div>
-        <div className="col-span-1 space-y-5 md:p-2">
+        <div className="col-span-1 space-y-2 sm:p-2">
           <div className="relative flex items-center gap-2">
             <img
               loading="lazy"
@@ -105,12 +106,13 @@ export default function DoiNguTop() {
               alt="icon Đạt chuẩn giáo viên"
               width={40}
               height={40}
+              className="h-10 w-10"
             ></img>
             <h3 className="text-[20px] font-semibold text-neutral-600">
               Đạt chuẩn Topgiaovien
             </h3>
           </div>
-          <p className="text-justify leading-[22.4px]">
+          <p className="text-justify sm:text-start">
             Đội ngũ giáo viên nhiều năm kinh nghiệm, background tốt, là Thạc sĩ,
             Thủ khoa, Á khoa, có chứng chỉ Ielts, HSK... cao. Có chứng chỉ giảng
             dạy quốc tế và được đào tạo bài bản. Điểm chung là đã được trải qua

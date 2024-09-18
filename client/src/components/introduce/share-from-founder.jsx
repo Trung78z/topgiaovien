@@ -27,32 +27,7 @@ export default function ShareFromFounder() {
               <div className="relative flex flex-col items-center justify-between md:flex-row">
                 <div className="absolute left-0 h-full w-1 bg-primary-500 sm:-translate-y-5 md:h-1 md:w-full"></div>
                 <div className="mb-4 flex flex-col items-center md:mb-0">
-                  <div className="flex flex-col gap-y-2 text-center sm:gap-y-10 md:text-left">
-                    <h4 className="flex items-center text-lg font-bold">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="40"
-                        height="40"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                      >
-                        <path
-                          d="M19.9999 4.1665C12.1883 4.1665 5.83325 10.5215 5.83325 18.3332C5.83325 26.6382 13.5483 31.7348 18.6533 35.1064L19.5366 35.6932C19.6766 35.7865 19.8382 35.8332 19.9982 35.8332C20.1582 35.8332 20.3199 35.7865 20.4599 35.6932L21.3433 35.1064C26.4482 31.7348 34.1633 26.6382 34.1633 18.3332C34.1666 10.5215 27.8116 4.1665 19.9999 4.1665ZM19.9999 22.4998C17.6983 22.4998 15.8333 20.6348 15.8333 18.3332C15.8333 16.0315 17.6983 14.1665 19.9999 14.1665C22.3016 14.1665 24.1666 16.0315 24.1666 18.3332C24.1666 20.6348 22.3016 22.4998 19.9999 22.4998Z"
-                          fill="#2B346F"
-                        />
-                      </svg>
-                      2021
-                    </h4>
-                    <p className="max-w-xs px-2 sm:mt-2">
-                      Cơ sở đầu tiên được thành lập tại Quận 3 với mong muốn
-                      mang lại những sản phẩm giáo dục chất lượng đến cho học
-                      viên
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mb-4 flex flex-col items-center md:mb-0">
-                  <div className="flex flex-col gap-y-2 text-center sm:gap-y-10 md:text-left">
+                  <div className="flex flex-col gap-y-2 text-center sm:gap-y-6 md:text-left">
                     <h4 className="flex items-center text-lg font-bold">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -69,13 +44,14 @@ export default function ShareFromFounder() {
                       2022
                     </h4>
                     <p className="max-w-xs px-2 sm:mt-2">
-                      Khai trương chi nhánh tại Tân Bình Quận 1 đáp ứng nhu cầu
-                      đi lại và học tập của học viên
+                      Cơ sở đầu tiên được thành lập tại Quận 1, với mong muốn
+                      tạo ra các lớp học IELTS giá rẻ và thực chiến cho học viên
                     </p>
                   </div>
                 </div>
+
                 <div className="mb-4 flex flex-col items-center md:mb-0">
-                  <div className="flex flex-col gap-y-2 text-center sm:gap-y-10 md:text-left">
+                  <div className="flex flex-col gap-y-2 text-center sm:gap-y-6 md:text-left">
                     <h4 className="flex items-center text-lg font-bold">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -89,11 +65,36 @@ export default function ShareFromFounder() {
                           fill="#2B346F"
                         />
                       </svg>
-                      2023 - Hiện tại
+                      2023
                     </h4>
                     <p className="max-w-xs px-2 sm:mt-2">
-                      Trở thành đối tác của iTop vào tháng 5 năm 2024 và khai
-                      trương chi nhánh tại Nguyễn Gia Trí quận Bình Thạnh
+                      Mở cơ sở mới tại 540/24 CMT8, Quận 3, đạt mốc 500 học viên
+                      theo học, phát triển thêm mảng đào tạo tiếng Trung
+                    </p>
+                  </div>
+                </div>
+                <div className="mb-4 flex flex-col items-center md:mb-0">
+                  <div className="flex flex-col gap-y-2 text-center sm:translate-y-6 sm:gap-y-6 md:text-left">
+                    <h4 className="flex items-center text-lg font-bold">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                      >
+                        <path
+                          d="M19.9999 4.1665C12.1883 4.1665 5.83325 10.5215 5.83325 18.3332C5.83325 26.6382 13.5483 31.7348 18.6533 35.1064L19.5366 35.6932C19.6766 35.7865 19.8382 35.8332 19.9982 35.8332C20.1582 35.8332 20.3199 35.7865 20.4599 35.6932L21.3433 35.1064C26.4482 31.7348 34.1633 26.6382 34.1633 18.3332C34.1666 10.5215 27.8116 4.1665 19.9999 4.1665ZM19.9999 22.4998C17.6983 22.4998 15.8333 20.6348 15.8333 18.3332C15.8333 16.0315 17.6983 14.1665 19.9999 14.1665C22.3016 14.1665 24.1666 16.0315 24.1666 18.3332C24.1666 20.6348 22.3016 22.4998 19.9999 22.4998Z"
+                          fill="#2B346F"
+                        />
+                      </svg>
+                      2024 - Hiện tại
+                    </h4>
+                    <p className="max-w-xs px-2 sm:mt-2">
+                      Hoàn chỉnh platform online giúp cho học viên chủ động tìm
+                      hiểu và lựa chọn giáo viên hàng đầu và phù hợp với nhu cầu
+                      học tập. Khai trương chi nhánh mới tại Bình Thạnh. Đạt mốc
+                      1000 hv theo học.
                     </p>
                   </div>
                 </div>

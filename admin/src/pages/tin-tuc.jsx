@@ -56,59 +56,61 @@ export default function ZingNews() {
         <Link to="/tin-tuc/them" className="flex items-center justify-end">
           <Button>Thêm mới</Button>
         </Link>
-        <Table>
-          <TableCaption>A list of your post .</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="">Title</TableHead>
-              <TableHead className="">Category</TableHead>
-              <TableHead>Content</TableHead>
+        <div className="content-scroll relative max-h-[60vh] min-h-[60vh] overflow-y-auto">
+          <Table>
+            <TableCaption>A list of your post .</TableCaption>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="">Title</TableHead>
+                <TableHead className="">Category</TableHead>
+                <TableHead>Content</TableHead>
 
-              <TableHead className="">Image</TableHead>
-              <TableHead className="">Option</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((item) => (
-              <TableRow key={item?.id}>
-                <TableCell className="font-medium">
-                  {formatContent(item?.title, 50)}
-                </TableCell>
-                <TableCell className="font-medium">
-                  {formatContent(item?.category.content, 50)}
-                </TableCell>
-                <TableCell className="font-medium">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: formatContent(
-                        item?.content.replace(/<\/?[^>]+>/gi, ""),
-                        50,
-                      ),
-                    }}
-                  ></div>
-                </TableCell>
-                <TableCell className="cursor-pointer font-medium">
-                  <a
-                    href={`${API_URL}/api/file/post/${item?.image}`}
-                    target="_blank"
-                  >
-                    Hình ảnh
-                  </a>
-                </TableCell>
-                <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
-                  <FaEdit
-                    className="h-4 w-4 cursor-pointer text-green-500"
-                    onClick={() => handleEdit(item.slug)}
-                  />
-                  <FaDeleteLeft
-                    className="h-4 w-4 cursor-pointer text-red-500"
-                    onClick={() => handleDelete(item.id)}
-                  />
-                </TableCell>
+                <TableHead className="">Image</TableHead>
+                <TableHead className="">Option</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {data.map((item) => (
+                <TableRow key={item?.id}>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.title, 50)}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    {formatContent(item?.category.content, 50)}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(
+                          item?.content.replace(/<\/?[^>]+>/gi, ""),
+                          50,
+                        ),
+                      }}
+                    ></div>
+                  </TableCell>
+                  <TableCell className="cursor-pointer font-medium">
+                    <a
+                      href={`${API_URL}/api/file/post/${item?.image}`}
+                      target="_blank"
+                    >
+                      Hình ảnh
+                    </a>
+                  </TableCell>
+                  <TableCell className="flex flex-shrink-0 items-center gap-1 font-medium">
+                    <FaEdit
+                      className="h-4 w-4 cursor-pointer text-green-500"
+                      onClick={() => handleEdit(item.slug)}
+                    />
+                    <FaDeleteLeft
+                      className="h-4 w-4 cursor-pointer text-red-500"
+                      onClick={() => handleDelete(item.id)}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </>
   );

@@ -58,7 +58,7 @@ export default function NavBar() {
         </div>
         <nav
           className={cn(
-            "nav-z container grid w-full grid-cols-4 items-center pt-4 sm:gap-x-3 sm:px-2",
+            "nav-z mx-a mx-auto grid w-full max-w-[1380px] grid-cols-4 items-center px-2 pt-4 sm:gap-x-3 sm:px-2",
             "md:flex md:items-center md:justify-between",
           )}
         >
@@ -68,7 +68,7 @@ export default function NavBar() {
           <div className="col-span-2 inline-flex justify-center md:hidden">
             <LogoTopTeacher />
           </div>
-          <ul className="hidden items-center gap-x-2 md:inline-flex">
+          <ul className="hidden items-center gap-x-4 md:inline-flex">
             <LogoTopTeacher />
             {nav.map((item) => {
               return (

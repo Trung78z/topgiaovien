@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import PropTypes from "prop-types";
+
 const steps = [
   {
     id: 1,

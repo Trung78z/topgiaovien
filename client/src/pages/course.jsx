@@ -1,5 +1,4 @@
 import CoursesTopGiaoVien from "@/components/cource/have-course";
-import LoTrinhCourse from "@/components/cource/lo-trinh-course";
 import ReviewCourses from "@/components/cource/review-cource";
 import NhanTuVanPage from "@/components/home/nhan-tu-van";
 import { Button } from "@/components/ui/button";
@@ -15,22 +14,24 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import useScrollToTop from "@/components/useScrollToTop";
+import RouteFetchCourse from "@/components/cource/lo-trinh-course-fetch";
+import { dataStepCourse } from "@/lib/data";
+
 export default function CourseTopTeacher() {
   const [categoryCourse, setCategoryCourse] = useState([]);
   const targetRef = useRef(null);
   const query = useQuery();
-  useScrollToTop();
-
   const topic = query.get("loai-khoa-hoc");
   const location = query.get("hinh-thuc");
-
+  useScrollToTop();
+  const [dataRouteCourse, setDataRouteCourse] = useState(dataStepCourse[0]);
+  const [active, setActive] = useState(1);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetch = async () => {
       try {
         const res = await getAllCourse();
         const resCate = await getCourseCategory();
-        console.log(res);
         const allSubCategories = resCate.msg
           .map((category) => category.courseSubCategory)
           .reduce((acc, subArray) => acc.concat(subArray), []);
@@ -39,9 +40,22 @@ export default function CourseTopTeacher() {
         if (topic || location) {
           const filtered = res.msg.filter(
             (item) =>
-              convertToSlug(item.courseCategory.content).includes(topic) &&
+              convertToSlug(item.courseSubCategory.content).includes(topic) &&
               item.typeLearn.toLowerCase() === location.toLowerCase(),
           );
+          if (topic === "toeic") {
+            setDataRouteCourse(dataStepCourse[6]);
+          } else if (topic === "ielts-academic") {
+            setDataRouteCourse(dataStepCourse[1]);
+          } else if (topic === "ielts-general") {
+            setDataRouteCourse(dataStepCourse[2]);
+          } else if (topic === "tieng-anh-giao-tiep") {
+            setDataRouteCourse(dataStepCourse[3]);
+          } else if (topic === "tieng-trung-toan-dien") {
+            setDataRouteCourse(dataStepCourse[4]);
+          } else {
+            setDataRouteCourse(dataStepCourse[4]);
+          }
           setData(filtered);
         } else {
           setData(res.msg);
@@ -52,7 +66,13 @@ export default function CourseTopTeacher() {
     };
     fetch();
   }, [topic, location]);
+  const handleSeletion = (value) => {
+    setActive(value);
 
+    console.log(value);
+    const update = dataStepCourse.find((item) => item.id === value);
+    setDataRouteCourse(update);
+  };
   const scrollToTarget = () => {
     if (targetRef.current) {
       const navbarHeight = 15;
@@ -93,7 +113,7 @@ export default function CourseTopTeacher() {
               </h1>
               <ul className="list-disc pl-0 sm:pl-10">
                 <li className="text-primary-500">
-                  Topgiaovien phát triển lớp kèm và các lớp học nhóm nhỏ
+                  Top giáo viênphát triển lớp kèm và các lớp học nhóm nhỏ
                 </li>
                 <li className="text-primary-500">
                   Chủ động tìm hiểu giáo viên để lựa chọn học tập phù hợp với
@@ -302,8 +322,16 @@ export default function CourseTopTeacher() {
             </div>
           </div>
         </div>
-        <CoursesTopGiaoVien props={data} topic={topic} />
-        <LoTrinhCourse props={data} />
+        <CoursesTopGiaoVien
+          props={data}
+          topic={topic}
+          active={active}
+          category={categoryCourse}
+          setCategory={setCategoryCourse}
+          handleSeletion={handleSeletion}
+        />
+        {/* <LoTrinhCourse /> */}
+        <RouteFetchCourse props={dataRouteCourse} />
         <ReviewCourses props={data} />
         <div ref={targetRef}>
           <NhanTuVanPage

@@ -66,13 +66,18 @@ export const getCoursesService = async () => {
     include: {
       routeDetail: true,
       courseCategory: true,
+      courseSubCategory: true,
     },
   });
 };
 export const getCourseService = async (slug: string) => {
   return await prisma.course.findUnique({
     where: { slug },
-    include: { routeDetail: true, courseCategory: true },
+    include: {
+      routeDetail: true,
+      courseCategory: true,
+      courseSubCategory: true,
+    },
   });
 };
 export const getCourseByIdService = async (id: number) => {
@@ -94,6 +99,18 @@ export const getCourseByTitleService = async (
     where: { slug },
   });
 };
+
+export const getCourseByIdTitleService = async (
+  id: number,
+  title: string,
+  dataCate: string
+) => {
+  const slug = createSlug(`${dataCate} ${title}`);
+  return await prisma.course.findUnique({
+    where: { slug, NOT: { id } },
+  });
+};
+
 export const editCourseService = async (
   id: number,
   title: string,
@@ -224,6 +241,7 @@ export const findChatsCourseService = async () => {
       linkChat: true,
       slug: true,
       courseCategory: { select: { content: true } },
+      courseSubCategory: true,
     },
   });
 };

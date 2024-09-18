@@ -11,7 +11,7 @@
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "generate-sitemap": "node public/generate-sitemap.js",
-    "preview": "cross-env NODE_ENV=production node server && node src/generate-sitemap"
+    "preview": "cross-env PORT=3000 NODE_ENV=production node server && node src/generate-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
