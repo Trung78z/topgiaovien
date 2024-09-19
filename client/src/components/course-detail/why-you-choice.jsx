@@ -10,7 +10,7 @@ export default function WhyYouChoice({ props }) {
   return (
     <div className="container mx-auto space-y-2 px-2">
       <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-        Tại sao nên học {props?.courseCategory?.content} tại TopGiaoVien?
+        Tại sao nên học {props?.courseCategory?.content} tại Top Giáo Viên?
       </h2>
 
       {props?.urlChoice === "" || props?.urlChoice === undefined ? (

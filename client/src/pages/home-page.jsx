@@ -101,7 +101,7 @@ export default function HomePage() {
       <div className="container mx-auto space-y-6 px-2 py-6 md:pr-10">
         <div className="flex text-2xl text-primary-500 md:text-4xl">
           <h1 className="inline-block">
-            <span className="font-semibold text-yellow-400">TopGiaoVien</span>
+            <span className="font-semibold text-yellow-400">Top Giáo Viên</span>
             <> </>
             tự hào là mô hình cho bạn chủ động chọn giáo viên top 1% để học tập
             đầu tiên ở Việt Nam

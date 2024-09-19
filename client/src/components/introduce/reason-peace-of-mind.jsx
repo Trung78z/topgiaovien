@@ -4,7 +4,7 @@ export default function ReasonAndPeaceOfMind() {
       <div className="container mx-auto mt-0 space-y-6 px-2">
         <h2 className="text-center text-[28px] font-semibold text-[#333333]">
           Vì bạn có 6 lý do học <br /> và an tâm tại
-          <span className="text-surface"> TopGiaoVien</span>
+          <span className="text-surface"> Top Giáo Viên</span>
         </h2>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-6">
           <div className="col-span-1 grid grid-cols-1 gap-y-3 md:gap-y-6">
@@ -55,7 +55,7 @@ export default function ReasonAndPeaceOfMind() {
               </div>
               <div className="space-y-2 p-2">
                 <h2 className="text-[24px] font-semibold">
-                  2. Đội ngũ giáo viên chuẩn Topgiaovien
+                  2. Đội ngũ giáo viên chuẩn Top Giáo Viên
                 </h2>
                 <p>
                   Các giáo viên thuộc Top Giáo Viên sẽ được chọn lựa, đánh giá

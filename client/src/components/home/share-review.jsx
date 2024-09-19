@@ -30,7 +30,7 @@ export default function ReviewShareCourse() {
     <>
       <div className="container mx-auto space-y-6 px-2">
         <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-          Những chia sẻ từ học viên của TopGiaoVien
+          Những chia sẻ từ học viên của Top Giáo Viên
         </h2>
         {/* <Suspense fallback={<LoadingPage></LoadingPage>}>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6 md:grid-cols-3">

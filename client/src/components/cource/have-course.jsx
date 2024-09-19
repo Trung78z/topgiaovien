@@ -44,7 +44,7 @@ export default function CoursesTopGiaoVien({
             Xếp hạng và đánh giá
           </h2>
           <p className="w-full text-center">
-            Các khóa học IELTS tại TopGiaoVien được nghiên cứu, thiết kế riêng
+            Các khóa học IELTS tại Top Giáo Viên được nghiên cứu, thiết kế riêng
             biệt bởi đội ngũ giáo viên nhiều năm kinh nghiệm, được sắp xếp phù
             hợp với từng đối tượng, nhằm đảm bảo và cam kết chất lượng đầu ra.
           </p>

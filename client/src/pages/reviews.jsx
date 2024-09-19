@@ -135,11 +135,11 @@ export default function Reviews() {
                 <p className="text-base">
                   Chúng tôi cam kết cung cấp chương trình giảng dạy tốt nhất,
                   chất lượng hàng đầu và sự tận tâm vượt ngoài mong đợi, để mỗi
-                  khóa học tại Top giáo viênkhông chỉ là cơ hội học tập mà còn
+                  khóa học tại Top giáo viên không chỉ là cơ hội học tập mà còn
                   là một hành trình nỗ lực đầy cảm hứng và thành công. Cùng khám
                   phá những phản hồi đầy tích cực qua hình ảnh, video và bài
                   viết báo chí để cảm nhận niềm vui, sự tiến bộ và kết quả đáng
-                  tự hào của các học viên tại Top giáo viênbạn nhé!
+                  tự hào của các học viên tại Top giáo viên bạn nhé!
                 </p>
               </ul>
 

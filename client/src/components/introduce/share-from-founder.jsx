@@ -19,7 +19,7 @@ export default function ShareFromFounder() {
           ></iframe>
         </div>
         <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-          Hành trình 3 năm của TopGiaoVien
+          Hành trình 3 năm của Top Giáo Viên
         </h2>
         <div className="bg-primary-50">
           <div className="container px-2 py-10">
@@ -208,11 +208,11 @@ export default function ShareFromFounder() {
           <div className="space-y-4 p-4 sm:p-10">
             <div className="space-y-1">
               <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-                Đối tác đồng hành cùng IELTS TopGiaoVien
+                Đối tác đồng hành cùng IELTS Top Giáo Viên
               </h2>
               <p className="text-center">
-                TopGiaoVien tự hào đã và đang đồng hành cùng các đơn vị, tổ chức
-                giáo dục uy tín.
+                Top Giáo Viên tự hào đã và đang đồng hành cùng các đơn vị, tổ
+                chức giáo dục uy tín.
               </p>
             </div>
           </div>

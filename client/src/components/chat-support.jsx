@@ -11,7 +11,7 @@ function ChatSupport() {
   return (
     <>
       <div className="sliding-text">
-        <span className="text-1">Chào mừng bạn đến với Topgiaovien!</span>
+        <span className="text-1">Chào mừng bạn đến với Top Giáo Viên!</span>
         <span className="text-2">
           Khám phá những nội dung hữu ích ngay bây giờ!
         </span>
@@ -26,7 +26,7 @@ function ChatSupport() {
         >
           <div className="rounded-t-lg bg-indigo-900 p-4 text-white">
             <h2 className="mr-6 font-bold">
-              TopGiaoVien có thể hỗ trợ gì cho anh chị ạ?
+              Top Giáo Viên có thể hỗ trợ gì cho anh chị ạ?
             </h2>
           </div>
           <div className="space-y-4 p-4">

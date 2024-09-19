@@ -10,7 +10,7 @@ export default function TopGiaoVienHave() {
   return (
     <div className="container mx-auto space-y-6 px-2 py-10">
       <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-        Ở TopGiaoVien có gì?
+        Ở Top Giáo Viên có gì?
       </h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="col-span-1 space-y-4">

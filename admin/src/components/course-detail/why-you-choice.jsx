@@ -14,7 +14,7 @@ export default function WhyYouChoice({
     <>
       <div className="container relative mx-auto space-y-6 px-1">
         <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-          Tại sao nên học {props?.courseCategory?.content} tại TopGiaoVien?
+          Tại sao nên học {props?.courseCategory?.content} tại Top Giáo Viên?
         </h2>
         <label
           htmlFor=""

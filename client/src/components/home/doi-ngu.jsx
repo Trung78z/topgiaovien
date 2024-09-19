@@ -29,7 +29,7 @@ export default function DoiNguTop() {
               className="border-primary"
               onClick={hanleClickSearchNow}
             >
-              Tìm TopGiaoVien ngay
+              Tìm Top Giáo Viên ngay
             </Button>
             <div className="flex justify-center">
               <img
@@ -69,7 +69,7 @@ export default function DoiNguTop() {
 
           <p className="text-justify sm:text-start">
             Ở Topgiaovien, đội ngũ giáo viên sẽ trực tiếp cam kết chất lượng cho
-            học viên. Top giáo viênsẽ ở giữa đảm bảo quyền lợi cho cả học viên
+            học viên. Top giáo viên sẽ ở giữa đảm bảo quyền lợi cho cả học viên
             và giáo viên. Đồng thời nếu bạn học tốt, đạt thành tích tốt còn được
             Top giáo viênthưởng hoàn tiền học phí.
           </p>
@@ -109,14 +109,14 @@ export default function DoiNguTop() {
               className="h-10 w-10"
             ></img>
             <h3 className="text-[20px] font-semibold text-neutral-600">
-              Đạt chuẩn Topgiaovien
+              Đạt chuẩn Top Giáo Viên
             </h3>
           </div>
           <p className="text-justify sm:text-start">
             Đội ngũ giáo viên nhiều năm kinh nghiệm, background tốt, là Thạc sĩ,
             Thủ khoa, Á khoa, có chứng chỉ Ielts, HSK... cao. Có chứng chỉ giảng
             dạy quốc tế và được đào tạo bài bản. Điểm chung là đã được trải qua
-            lớp đào tạo giáo viên tài năng của Topgiaovien
+            lớp đào tạo giáo viên tài năng của Top Giáo Viên
           </p>
         </div>
       </div>

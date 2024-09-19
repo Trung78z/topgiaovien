@@ -51,7 +51,7 @@ export default function BannerDetail({ props }) {
                 fill="#E05F3E"
               />
             </svg>
-            Top giáo viênmember
+            Top giáo viên member
           </h2>
           <h1 className="text-4xl font-semibold text-neutral-900 sm:text-[48px]">
             {props?.name}
@@ -59,7 +59,7 @@ export default function BannerDetail({ props }) {
           <p>
             {props?.position.replace("tại TopGiaovien", "") ||
               "Academic Director"}
-            tại TopGiaoVien
+            tại Top Giáo Viên
           </p>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -42,7 +42,7 @@ export default function Introduce() {
             <LogoTopTeacher />
           </div>
           <p className="max-w-screen-md text-justify">
-            Được thành lập từ năm 2021, TopGiaoVien hân hạnh là đơn vị uy tín
+            Được thành lập từ năm 2021, Top Giáo Viên hân hạnh là đơn vị uy tín
             tại Hồ Chí Minh, đồng hành cùng Quý phụ huynh, Quý học viên và các
             đối tác trong lĩnh vực chuyên đào tạo chứng chỉ Toeic, chứng chỉ
             IELTS Academic (Học thuật), chứng chỉ IELTS General (Tổng quát),
@@ -131,7 +131,7 @@ export default function Introduce() {
                 <h2 className="text-[28px] font-semibold text-primary-500">
                   Mr. Chieu Phan
                 </h2>
-                <p className="text-[16px]">Founder và CEO tại TopGiaoVien</p>
+                <p className="text-[16px]">Founder và CEO tại Top Giáo Viên</p>
 
                 <div className="relative flex items-center justify-between p-8 sm:p-10">
                   <div className="absolute top-2 -translate-x-[70%]">

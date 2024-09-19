@@ -22,11 +22,11 @@ export default function ReviewCourses() {
       <div className="container mx-auto space-y-6 px-2 py-2">
         <div className="w-full space-y-3">
           <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-            Những yêu thương từ học viên của Top giáo viên
+            Những yêu thương từ học viên của Top Giáo Viên
           </h2>
           <p className="text-center text-[16px]">
             Những chia sẻ của học viên về trải nghiệm học tập và hành trình
-            chinh phục điểm IELTS tại TopGiaoVien.
+            chinh phục điểm IELTS tại Top Giáo Viên.
           </p>
         </div>
         <Suspense fallback={<LoadingPage></LoadingPage>}>

@@ -113,7 +113,7 @@ export default function CourseTopTeacher() {
               </h1>
               <ul className="list-disc pl-0 sm:pl-10">
                 <li className="text-primary-500">
-                  Top giáo viênphát triển lớp kèm và các lớp học nhóm nhỏ
+                  Top giáo viên phát triển lớp kèm và các lớp học nhóm nhỏ
                 </li>
                 <li className="text-primary-500">
                   Chủ động tìm hiểu giáo viên để lựa chọn học tập phù hợp với
