@@ -22268,3 +22268,13 @@
 {"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/file/teacher/imageTeacher-1726136166896-777269353.jpg","timestamp":"2024-09-18T01:43:08.924Z"}
 {"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/file/teacher/MR%20%C4%90%E1%BA%A0T.JPEG","timestamp":"2024-09-18T01:43:08.931Z"}
 {"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/file/banner/banner-1726132096880-111987027.jpg","timestamp":"2024-09-18T01:43:11.028Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/auth/refresh-token","timestamp":"2024-09-19T03:24:04.287Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/auth/refresh-token","timestamp":"2024-09-19T03:24:04.451Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/auth/refresh-token","timestamp":"2024-09-19T03:24:07.686Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/auth/refresh-token","timestamp":"2024-09-19T03:24:07.697Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:09.474Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:09.501Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:14.977Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:15.006Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:18.887Z"}
+{"level":"info","message":"Nhận yêu cầu từ ip: ::1 method: GET /api/user","timestamp":"2024-09-19T03:24:18.921Z"}
