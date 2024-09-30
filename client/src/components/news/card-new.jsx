@@ -12,7 +12,7 @@ export default function CardNews({ props }) {
               `${API_URL}/api/file/post/${props?.image}` ||
               "/assets/post/post1.png"
             }
-            alt="Hình ảnh chia sẽ về góc học tập"
+            alt="Hình ảnh chia sẻ về góc học tập"
             loading="eager"
             width={307}
             height={171}

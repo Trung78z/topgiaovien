@@ -7,7 +7,7 @@ export default function ShareFromFounder() {
       <div className="space-y-6">
         <div className="container mx-auto space-y-6 px-2">
           <h2 className="text-center text-[28px] font-semibold text-[#333333]">
-            Chia sẽ từ Founder về hành trình khởi nghiệp
+            Chia sẻ từ Founder về hành trình khởi nghiệp
           </h2>
           <iframe
             className="min-h-60 w-full sm:min-h-[500px]"

@@ -112,7 +112,7 @@ export default function HomePage() {
           <span className="text-justify text-secondary"> online</span> hay
           <span className="text-justify text-secondary"> offline</span> , đội
           ngũ top giáo viên đều được kiểm định, có background và đánh giá tốt sẽ
-          giúp sự học của bạn được nâng lên một tầm cao mới. Chỉ với một vài
+          giúp việc học của bạn được nâng lên một tầm cao mới. Chỉ với một vài
           thông tin bên dưới, chúng tôi sẽ gợi ý ngay cho bạn những lựa chọn tốt
           nhất!
         </p>
