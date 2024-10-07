@@ -7,7 +7,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import ScheduleNews from "./pages/schedule-news";
 import ScheduleNewsDetail from "./pages/schedule-news-detail";
 import LayoutTop from "./components/layout";
-import ELearning from "./pages/e-learing";
+import ELearning from "./pages/e-learning";
 import NotFoundPage from "./pages/NotFoundPage";
 import ChangePassword from "./pages/auth-change-page";
 import EditProfile from "./pages/profile-edit";

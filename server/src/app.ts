@@ -6,7 +6,6 @@ import RootRouter from "./routes";
 import { logger } from "./logger";
 import path from "path";
 import { configDotenv } from "dotenv";
-import { vipUser } from "./models/data/vipuser";
 
 configDotenv();
 const app = express();
@@ -29,7 +28,10 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-process.env.NODE_ENV === "production" && app.set("trust proxy", true);
+
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", true);
+}
 
 app.use((req, res, next) => {
   logger.info(`Nhận yêu cầu từ ip: ${req.ip} method: ${req.method} ${req.url}`);
