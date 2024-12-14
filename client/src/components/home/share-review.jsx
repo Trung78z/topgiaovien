@@ -1,20 +1,10 @@
-import { Suspense, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { getShare } from "@/services/shareService";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CardReview from "../card-review";
-import LoadingPage from "../loading";
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Hoán đổi các phần tử
-  }
-  return array;
-}
-function getRandomItems(array, numberOfItems) {
-  const shuffled = shuffleArray(array.slice()); // Tạo bản sao của danh sách và trộn nó
-  return shuffled.slice(0, numberOfItems); // Chọn số mục mong muốn
-}
+
+
 
 export default function ReviewShareCourse() {
   const [data, setData] = useState([]);
@@ -32,13 +22,6 @@ export default function ReviewShareCourse() {
         <h2 className="text-center text-[28px] font-semibold text-[#333333]">
           Những chia sẻ từ học viên của Top Giáo Viên
         </h2>
-        {/* <Suspense fallback={<LoadingPage></LoadingPage>}>
-          <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6 md:grid-cols-3">
-            {getRandomItems(data, 6).map((item, index) => (
-              <CardReview key={index} data={item} />
-            ))}
-          </div>
-        </Suspense> */}
         <Swiper
           pagination={{
             dynamicBullets: true,

@@ -24,7 +24,7 @@ export default function CardReview({ data }) {
           <h4 className="text-[20px] font-medium">
             {data?.fullName || "Nguyễn Minh Hiếu"}
           </h4>
-          <p>{new Date(data?.updatedAt).toLocaleDateString("vi-VN")}</p>
+          {/* <p>{new Date(data?.updatedAt).toLocaleDateString("vi-VN")}</p> */}
         </div>
         <Link
           to={data?.link}

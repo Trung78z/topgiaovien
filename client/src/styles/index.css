@@ -8,27 +8,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   @apply font-sans;
   font-family: "Montserrat", sans-serif;
 }
+
 body::-webkit-scrollbar {
   width: 10px;
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: #cccccc;
   border-radius: 20px;
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: #2b346f;
   border-radius: 20px;
 }
+
 body::-webkit-scrollbar-thumb:hover {
   background-color: #2c3256;
 }
+
 body {
   background-color: #fff;
 }
@@ -37,12 +44,14 @@ body[data-scroll-locked]::-webkit-scrollbar {
   width: 10px;
   overflow-y: scroll;
 }
+
 .line-container {
   position: relative;
   display: flex;
   align-items: center;
   text-align: center;
 }
+
 .line-container::before,
 .line-container::after {
   content: "";
@@ -51,10 +60,12 @@ body[data-scroll-locked]::-webkit-scrollbar {
   height: 1px;
   background-color: #2b346f;
 }
+
 .line-container::before {
   margin-right: 0.5rem;
   margin-left: auto;
 }
+
 .line-container::after {
   margin-left: 0.5rem;
   margin-right: auto;
@@ -121,15 +132,19 @@ body[data-scroll-locked]::-webkit-scrollbar {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  .rich-text > ul {
+
+  .rich-text>ul {
     @apply ml-10 list-disc;
   }
-  .rich-text > ol {
+
+  .rich-text>ol {
     @apply ml-10 list-decimal;
   }
+
   .rich-text h2 {
     @apply text-2xl font-bold;
   }
@@ -137,44 +152,58 @@ body[data-scroll-locked]::-webkit-scrollbar {
   .rich-text h3 {
     @apply text-xl font-semibold;
   }
+
   .rich-text strong {
     @apply font-medium;
   }
+
   .rich-text h4 {
     @apply text-lg font-medium;
   }
+
   .editText {
     @apply rounded-md border-2 border-green-500 px-2;
   }
+
   .rich-text h5 {
     @apply text-[15px] font-medium;
   }
+
   .rich-text {
-    tab-size: 4; /* Kích thước của tab (số lượng khoảng trắng tương ứng với một tab) */
-    white-space: pre-wrap; /* Giữ nguyên khoảng trắng và ngắt dòng */
+    tab-size: 4;
+    /* Kích thước của tab (số lượng khoảng trắng tương ứng với một tab) */
+    white-space: pre-wrap;
+    /* Giữ nguyên khoảng trắng và ngắt dòng */
   }
+
   .rich-text h6 {
     @apply text-sm font-normal;
   }
+
   .content-scroll::-webkit-scrollbar {
     width: 10px;
   }
+
   .content-scroll::-webkit-scrollbar-thumb {
     background-color: #cccccc;
     border-radius: 20px;
   }
+
   .content-scroll::-webkit-scrollbar-thumb {
     background-color: #2b346f;
     border-radius: 20px;
   }
+
   .content-scroll[data-scroll-locked]::-webkit-scrollbar {
     width: 10px;
     overflow-y: scroll;
   }
+
   .effect {
     transition: all 0.3s ease-in-out unset;
   }
 }
+
 @media (min-width: 1300px) {
   .container {
     max-width: 1300px;
@@ -190,27 +219,33 @@ form label {
   top: 50%;
   transform: translateY(-50%);
 }
-.peer:focus ~ label,
-.peer:not(:placeholder-shown) ~ label {
+
+.peer:focus~label,
+.peer:not(:placeholder-shown)~label {
   top: -20px;
   transform: none;
 }
+
 .icon-container {
   position: relative;
   display: inline-block;
 }
+
 .hover-content {
   display: none;
 }
+
 .icon-container:hover .hover-content {
   display: block;
 }
 
 @keyframes shake {
+
   0%,
   100% {
     transform: translateX(0);
   }
+
   10%,
   30%,
   50%,
@@ -218,6 +253,7 @@ form label {
   90% {
     transform: translateX(-1px);
   }
+
   20%,
   40%,
   60%,
@@ -230,20 +266,25 @@ form label {
   animation: shake 0.82s cubic-bezier(0.8, 0.07, 0.19, 0.97) infinite;
   box-shadow: 0 400px 40px rgba(141, 247, 12, 0.2);
 }
+
 .shadow-icon::after {
   content: "";
   position: absolute;
   animation: shake 0.82s cubic-bezier(0.8, 0.07, 0.19, 0.97) infinite;
   box-shadow: 0 400px 40px rgba(163, 212, 103, 0.2);
 }
+
 .scroll-target {
-  margin-top: 20vh; /* Khoảng cách với thanh navbar */
+  margin-top: 20vh;
+  /* Khoảng cách với thanh navbar */
 }
 
 .sliding-text {
   position: fixed;
-  bottom: 70px; /* Adjust this to position the text above the icon */
-  right: 20px; /* Adjust this to position the text near the icon */
+  bottom: 70px;
+  /* Adjust this to position the text above the icon */
+  right: 20px;
+  /* Adjust this to position the text near the icon */
   background-color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -256,28 +297,35 @@ form label {
 }
 
 @keyframes slideInOut {
+
   0%,
   100% {
     opacity: 0;
     transform: translateX(100%);
   }
+
   10%,
   90% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .card-hover {
   overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
 }
 
 .card-hover img {
-  transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển đổi cho hình ảnh */
+  transition: transform 0.3s ease-in-out;
+  /* Thêm hiệu ứng chuyển đổi cho hình ảnh */
 }
+
 .card-hover:hover img {
-  transform: scale(1.05); /* Phóng to hình ảnh lên 5% khi hover */
+  transform: scale(1.05);
+  /* Phóng to hình ảnh lên 5% khi hover */
 }
+
 .animate-text {
   animation: text 0.3s infinite;
 }
@@ -307,10 +355,12 @@ form label {
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(230%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -320,10 +370,12 @@ form label {
   0% {
     color: aquamarine;
   }
+
   100% {
     color: yellow;
   }
 }
+
 .slide-in-from-right {
   animation: slideInFromRight 0.9s backwards;
   animation-duration: 500ms;
@@ -340,6 +392,7 @@ form label {
     transform: translateX(0);
   }
 }
+
 .slide-in-from-opacity {
   animation: slideInFromOpacity 0.9s backwards;
   animation-duration: 500ms;
@@ -361,15 +414,23 @@ form label {
   width: 10px;
   height: 5px;
 }
+
 .content-scroll-z::-webkit-scrollbar-thumb {
   background-color: #cccccc;
   border-radius: 20px;
 }
+
 .content-scroll-z::-webkit-scrollbar-thumb {
   background-color: #2b346f;
   border-radius: 20px;
 }
+
 .content-scroll-z[data-scroll-locked]::-webkit-scrollbar {
   width: 10px;
   overflow-y: scroll;
+}
+
+
+.customCss {
+  color: white !important;
 }

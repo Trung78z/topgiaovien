@@ -191,7 +191,8 @@ export default function RegisterPage() {
             <h4>
               Bạn đã có tài khoản?
               <Link
-                to="/dang-nhap"
+                to="/auth/register"
+                type="submit"
                 className="text-blue-500 hover:text-blue-600"
               >
                 Đăng nhập

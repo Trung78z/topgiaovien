@@ -41,7 +41,7 @@ export default function Reviews() {
   const [categoryCourse, setCategoryCourse] = useState([]);
   const targetRef = useRef(null);
   const [dataImageMoment, setDataImageMoment] = useState();
-  useScrollToTop();
+  // useScrollToTop();
 
   const [dataReviewVideo, setDataReviewVideo] = useState([]);
   const [firstPart, setFirstPart] = useState([]);
@@ -94,7 +94,7 @@ export default function Reviews() {
     setShow((prev) => prev + 6);
   };
   const seemsLess = () => {
-    setShow(6);
+    setShow(3);
   };
   const scrollToTarget = () => {
     if (targetRef.current) {
@@ -559,24 +559,30 @@ export default function Reviews() {
               ))}
               {dataReviewNew.length > 0 ? (
                 dataReviewNew.length > show ? (
+              <div className=" w-full items-center justify-center flex">
+
+              
                   <Button
-                    className="flex w-full items-center justify-center gap-x-2 px-2"
+                    className="flex items-center justify-center px-2 pl-4 text-white  gap-x-2"
                     onClick={seeMore}
-                  >
+                    >
                     Xem thêm
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
-                      fill="none"
+                       
+                        className="text-white"
                     >
                       <path
                         d="M12.0003 17.0003C11.7443 17.0003 11.4883 16.9023 11.2933 16.7073L4.29325 9.70731C3.90225 9.31631 3.90225 8.68425 4.29325 8.29325C4.68425 7.90225 5.31631 7.90225 5.70731 8.29325L12.0003 14.5862L18.2933 8.29325C18.6842 7.90225 19.3163 7.90225 19.7073 8.29325C20.0983 8.68425 20.0983 9.31631 19.7073 9.70731L12.7073 16.7073C12.5123 16.9023 12.2563 17.0003 12.0003 17.0003Z"
-                        fill="#2B346F"
+                       
+                        className="text-white"
                       />
                     </svg>
                   </Button>
+                    </div>
                 ) : (
                   dataReviewNew.length > 3 && (
                     <>
