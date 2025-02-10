@@ -1,0 +1,44 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: ["release-v1"]
+  pull_request:
+    branches: ["release-v1"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Deploy to VPS
+        env:
+          SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
+          SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
+          VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}
+        run: |
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}  << EOF
+          echo "Connected to VPS"
+
+
+          cd /root/topgiaovien
+          git reset --hard HEAD
+          git pull
+          cd client
+          npm install
+          npm run build
+          tmux kill-session -t client
+          tmux new-session -d -s client 'npm run preview'
+          EOF
