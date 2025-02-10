@@ -44,7 +44,7 @@ jobs:
           VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
         run: |
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "
-            tmux has-session -t client 2>/dev/null && tmux kill-session -t client || echo 'No tmux session to kill'"
+            tmux attach -t client
 
       - name: Deploy via SSH
         env:
