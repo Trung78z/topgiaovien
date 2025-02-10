@@ -37,7 +37,7 @@ jobs:
           git reset --hard HEAD
           git pull
           cd client
-          npm install
+          npm install --force
           npm run build
           tmux kill-session -t client
           tmux new-session -d -s client 'npm run preview'
