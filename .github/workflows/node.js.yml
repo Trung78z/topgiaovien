@@ -27,9 +27,13 @@ jobs:
         
       - name: Install dependencies
         run: npm install --force
-        
+        working-directory: ./client
+
+      # Build project
       - name: Build project
         run: npm run build
+        working-directory: ./client
+        
       - name: Deploy via SSH
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
