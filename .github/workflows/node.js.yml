@@ -37,14 +37,15 @@ jobs:
       - name: Verify dist content
         run: ls -la client/dist
 
-      # - name: Kill tmux
-      #   env:
-      #     SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
-      #     SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
-      #     VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
-      #   run: |
-      #     sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "
-      #       tmux attach -t client
+      - name: Kill tmux
+        env:
+          SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
+          SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
+          VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
+        run: |
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "
+            tmux has-session -t client 2>/dev/null && tmux kill-session -t client || echo 'No tmux session to kill'"
+
 
       - name: Deploy via SSH
         env:
@@ -77,7 +78,7 @@ jobs:
             ls
             npm install --force
             echo "deploy"
-            # tmux new-session -d -s client 'npm run preview'
+            tmux new-session -d -s client 'npm run preview'
             tmux new -s client
             npm run preview
             echo "success"
