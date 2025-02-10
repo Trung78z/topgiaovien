@@ -48,7 +48,7 @@ jobs:
             rm -rf /root/topgiaovien/client/dist/* &&
             mkdir -p /root/topgiaovien/client/dist"
             
-          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r dist/client/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r client/dist/client/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
       - name: Restart application on VPS
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
