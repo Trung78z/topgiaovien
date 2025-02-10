@@ -34,6 +34,9 @@ jobs:
         run: npm run build
         working-directory: ./client
         
+      - name: Verify dist content
+        run: ls -la client/dist
+        
       - name: Deploy via SSH
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
@@ -41,8 +44,8 @@ jobs:
           VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
         run: |
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "rm -rf /root/topgiaovien/client/dist/*"
-          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r dist/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
-      
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r client/dist/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
+          
       - name: Restart application on VPS
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
