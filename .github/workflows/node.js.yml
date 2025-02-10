@@ -65,13 +65,17 @@ jobs:
           SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
           VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}
         run: |
-          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}  << EOF
-          echo "Connected to VPS"
-          
-          cd /root/topgiaovien
-          git reset --hard HEAD
-          git pull
-          cd client
-          npm install --force
-          tmux new-session -d -s client 'npm run preview'
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} << EOF
+            echo "Connected to VPS"
+            cd /root/topgiaovien
+            echo "git reset"
+            git reset --hard HEAD
+            echo "git pull"
+            git pull
+            echo "node install"
+            cd client
+            npm install --force
+            echo "deploy"
+            tmux new-session -d -s client 'npm run preview'
+            echo "success"
           EOF
