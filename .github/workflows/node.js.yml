@@ -44,8 +44,8 @@ jobs:
           VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
         run: |
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "
-            tmux kill-session -t client &&
-            rm -rf /root/topgiaovien/client/dist && 
+            tmux has-session -t client 2>/dev/null && tmux kill-session -t client || echo 'No tmux session to kill';
+            rm -rf /root/topgiaovien/client/dist;
             mkdir -p /root/topgiaovien/client/dist"
             
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r client/dist/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
