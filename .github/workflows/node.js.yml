@@ -36,17 +36,27 @@ jobs:
         
       - name: Verify dist content
         run: ls -la client/dist
-        
-      - name: Deploy via SSH
+
+      - name: Kill tmux
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
           SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
           VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
         run: |
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "
-            tmux has-session -t client 2>/dev/null && tmux kill-session -t client || echo 'No tmux session to kill';
-            rm -rf /root/topgiaovien/client/dist/* &&
-            mkdir -p /root/topgiaovien/client/dist"
+            tmux has-session -t client 2>/dev/null && tmux kill-session -t client || echo 'No tmux session to kill'"
+
+      - name: Deploy via SSH
+        env:
+          SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
+          SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
+          VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
+        run: |
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} << EOF
+            echo "Cleaning and preparing dist directory"
+            rm -rf /root/topgiaovien/client/dist/*
+            mkdir -p /root/topgiaovien/client/dist
+          EOF
             
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r client/dist/client/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
       - name: Restart application on VPS
