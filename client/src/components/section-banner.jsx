@@ -35,12 +35,13 @@ export default function SectionBanner() {
             loop
             modules={[Pagination, Autoplay]}
             autoplay={{
-              delay: 6000,
+              delay: 500,
               disableOnInteraction: false,
             }}
             spaceBetween={0}
             slidesPerView={1}
-            // pagination={{ clickable: true }}
+            pagination={{ clickable: true }}
+            effect="flip"
           >
             {images?.map((item) => (
               <SwiperSlide className="min-w-full" key={item.id}>
