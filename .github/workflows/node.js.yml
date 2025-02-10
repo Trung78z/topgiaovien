@@ -22,8 +22,24 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
+        
 
-      - name: Deploy to VPS
+        
+      - name: Install dependencies
+        run: npm install --force
+        
+      - name: Build project
+        run: npm run build
+      - name: Deploy via SSH
+        env:
+          SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
+          SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
+          VPS_FINE_FINISH_HOST: ${{ secrets.VPS_FINE_FINISH_HOST }}          
+        run: |
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }} "rm -rf /root/topgiaovien/client/dist/*"
+          sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" scp -o StrictHostKeyChecking=no -r dist/* ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}:/root/topgiaovien/client/dist
+      
+      - name: Restart application on VPS
         env:
           SSH_FINE_FINISH_PASSWORD: ${{ secrets.SSH_FINE_FINISH_PASSWORD }}
           SSH_FINE_FINISH_USER: ${{ secrets.SSH_FINE_FINISH_USER }}
@@ -31,14 +47,12 @@ jobs:
         run: |
           sshpass -p "${{ secrets.SSH_FINE_FINISH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_FINE_FINISH_USER }}@${{ secrets.VPS_FINE_FINISH_HOST }}  << EOF
           echo "Connected to VPS"
-
-
+          
           cd /root/topgiaovien
           git reset --hard HEAD
           git pull
           cd client
           npm install --force
-          npm run build
           tmux kill-session -t client
           tmux new-session -d -s client 'npm run preview'
           EOF
