@@ -95,7 +95,7 @@ export default function DoiNguTop() {
             trợ học viên ngoài giờ học thông qua zalo. Bởi sự hài lòng của học
             viên được
             <span className="font-semibold text-primary"> công khai </span>
-            và ảnh hưởng đến danh tiếng của giáo viên
+            và ảnh hưởng đến thu nhập của giáo viên
           </p>
         </div>
         <div className="col-span-1 space-y-2 sm:p-2">
